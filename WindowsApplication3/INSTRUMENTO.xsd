@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="INSTRUMENTO" targetNamespace="http://tempuri.org/INSTRUMENTO.xsd" xmlns:mstns="http://tempuri.org/INSTRUMENTO.xsd" xmlns="http://tempuri.org/INSTRUMENTO.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="INSTRUMENTO" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="INSTRUMENTO" msprop:Generator_UserDSName="INSTRUMENTO">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ENCABEZADO" msprop:Generator_TableClassName="ENCABEZADODataTable" msprop:Generator_TableVarName="tableENCABEZADO" msprop:Generator_TablePropName="ENCABEZADO" msprop:Generator_RowDeletingName="ENCABEZADORowDeleting" msprop:Generator_RowChangingName="ENCABEZADORowChanging" msprop:Generator_RowEvHandlerName="ENCABEZADORowChangeEventHandler" msprop:Generator_RowDeletedName="ENCABEZADORowDeleted" msprop:Generator_UserTableName="ENCABEZADO" msprop:Generator_RowChangedName="ENCABEZADORowChanged" msprop:Generator_RowEvArgName="ENCABEZADORowChangeEvent" msprop:Generator_RowClassName="ENCABEZADORow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IDENTIFICADOR" msprop:Generator_ColumnVarNameInTable="columnIDENTIFICADOR" msprop:Generator_ColumnPropNameInRow="IDENTIFICADOR" msprop:Generator_ColumnPropNameInTable="IDENTIFICADORColumn" msprop:Generator_UserColumnName="IDENTIFICADOR" type="xs:string" minOccurs="0" />
+              <xs:element name="TIPO" msprop:Generator_ColumnVarNameInTable="columnTIPO" msprop:Generator_ColumnPropNameInRow="TIPO" msprop:Generator_ColumnPropNameInTable="TIPOColumn" msprop:Generator_UserColumnName="TIPO" type="xs:string" minOccurs="0" />
+              <xs:element name="OPERARIO" msprop:Generator_ColumnVarNameInTable="columnOPERARIO" msprop:Generator_ColumnPropNameInRow="OPERARIO" msprop:Generator_ColumnPropNameInTable="OPERARIOColumn" msprop:Generator_UserColumnName="OPERARIO" type="xs:string" minOccurs="0" />
+              <xs:element name="FECHA" msprop:Generator_ColumnVarNameInTable="columnFECHA" msprop:Generator_ColumnPropNameInRow="FECHA" msprop:Generator_ColumnPropNameInTable="FECHAColumn" msprop:Generator_UserColumnName="FECHA" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DETALLE" msprop:Generator_TableClassName="DETALLEDataTable" msprop:Generator_TableVarName="tableDETALLE" msprop:Generator_TablePropName="DETALLE" msprop:Generator_RowDeletingName="DETALLERowDeleting" msprop:Generator_RowChangingName="DETALLERowChanging" msprop:Generator_RowEvHandlerName="DETALLERowChangeEventHandler" msprop:Generator_RowDeletedName="DETALLERowDeleted" msprop:Generator_UserTableName="DETALLE" msprop:Generator_RowChangedName="DETALLERowChanged" msprop:Generator_RowEvArgName="DETALLERowChangeEvent" msprop:Generator_RowClassName="DETALLERow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IDENTIFICADOR" msprop:Generator_ColumnVarNameInTable="columnIDENTIFICADOR" msprop:Generator_ColumnPropNameInRow="IDENTIFICADOR" msprop:Generator_ColumnPropNameInTable="IDENTIFICADORColumn" msprop:Generator_UserColumnName="IDENTIFICADOR" type="xs:string" minOccurs="0" />
+              <xs:element name="TIPOCALI" msprop:Generator_ColumnVarNameInTable="columnTIPOCALI" msprop:Generator_ColumnPropNameInRow="TIPOCALI" msprop:Generator_ColumnPropNameInTable="TIPOCALIColumn" msprop:Generator_UserColumnName="TIPOCALI" type="xs:string" minOccurs="0" />
+              <xs:element name="FCALIBRACION" msprop:Generator_ColumnVarNameInTable="columnFCALIBRACION" msprop:Generator_ColumnPropNameInRow="FCALIBRACION" msprop:Generator_ColumnPropNameInTable="FCALIBRACIONColumn" msprop:Generator_UserColumnName="FCALIBRACION" type="xs:string" minOccurs="0" />
+              <xs:element name="FVERIFICACION" msprop:Generator_ColumnVarNameInTable="columnFVERIFICACION" msprop:Generator_ColumnPropNameInRow="FVERIFICACION" msprop:Generator_ColumnPropNameInTable="FVERIFICACIONColumn" msprop:Generator_UserColumnName="FVERIFICACION" type="xs:string" minOccurs="0" />
+              <xs:element name="FVTO" msprop:Generator_ColumnVarNameInTable="columnFVTO" msprop:Generator_ColumnPropNameInRow="FVTO" msprop:Generator_ColumnPropNameInTable="FVTOColumn" msprop:Generator_UserColumnName="FVTO" type="xs:string" minOccurs="0" />
+              <xs:element name="RESPONSABLE" msprop:Generator_ColumnVarNameInTable="columnRESPONSABLE" msprop:Generator_ColumnPropNameInRow="RESPONSABLE" msprop:Generator_ColumnPropNameInTable="RESPONSABLEColumn" msprop:Generator_UserColumnName="RESPONSABLE" type="xs:string" minOccurs="0" />
+              <xs:element name="OBSERVACIONES" msprop:Generator_ColumnVarNameInTable="columnOBSERVACIONES" msprop:Generator_ColumnPropNameInRow="OBSERVACIONES" msprop:Generator_ColumnPropNameInTable="OBSERVACIONESColumn" msprop:Generator_UserColumnName="OBSERVACIONES" type="xs:string" minOccurs="0" />
+              <xs:element name="NCALIBRACION" msprop:Generator_ColumnVarNameInTable="columnNCALIBRACION" msprop:Generator_ColumnPropNameInRow="NCALIBRACION" msprop:Generator_ColumnPropNameInTable="NCALIBRACIONColumn" msprop:Generator_UserColumnName="NCALIBRACION" type="xs:string" minOccurs="0" />
+              <xs:element name="APTO" msprop:Generator_ColumnVarNameInTable="columnAPTO" msprop:Generator_ColumnPropNameInRow="APTO" msprop:Generator_ColumnPropNameInTable="APTOColumn" msprop:Generator_UserColumnName="APTO" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="ENCABEZADOKey1">
+      <xs:selector xpath=".//mstns:ENCABEZADO" />
+      <xs:field xpath="mstns:IDENTIFICADOR" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="ENCABEZADO_DETALLE" msdata:parent="ENCABEZADO" msdata:child="DETALLE" msdata:parentkey="IDENTIFICADOR" msdata:childkey="IDENTIFICADOR" msprop:Generator_UserChildTable="DETALLE" msprop:Generator_ChildPropName="GetDETALLERows" msprop:Generator_UserRelationName="ENCABEZADO_DETALLE" msprop:Generator_ParentPropName="ENCABEZADORow" msprop:Generator_RelationVarName="relationENCABEZADO_DETALLE" msprop:Generator_UserParentTable="ENCABEZADO" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>
