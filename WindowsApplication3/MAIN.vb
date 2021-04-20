@@ -13,10 +13,14 @@ Module MAIN
     '##### DESTOCK OFICINA ####
     'Public conexion As String = "Data Source=.;AttachDbFilename=C:\Bases\BASE_EXGADET.mdf;Integrated Security=True;Connect Timeout=60;User Instance=True"
     'Public conexionIntegral As String = "Data Source=.;AttachDbFilename=C:\Bases\Bace_CRC.mdf;Integrated Security=True;Connect Timeout=60;User Instance=True"
+    '#### clon exgadet
+    Public conexion As String = "Data Source=SERVER1;Initial Catalog=BASE_EXGADET_CLON;User ID=sa;Password=Exgadetsa01"
+    Public conexionIntegral As String = "Data Source=SERVER1;Initial Catalog=Sistema_Integral_Clon;Persist Security Info=True;User ID=sa;Password=Exgadetsa01"
+
 
     '##### EN LA OFICINA ####
-    Public conexion As String = "Data Source=SERVER1;Initial Catalog=BASE_EXGADET;User ID=MBsoluciones;Password=exgadetsa01"
-    Public conexionIntegral As String = "Data Source=SERVER1;Initial Catalog=Sistema_Integral_Exgadet;Persist Security Info=True;User ID=sa;Password=exgadetsa01"
+    'Public conexion As String = "Data Source=SERVER1;Initial Catalog=BASE_EXGADET;User ID=sa;Password=Exgadetsa01"
+    'Public conexionIntegral As String = "Data Source=SERVER1;Initial Catalog=Sistema_Integral_Exgadet;Persist Security Info=True;User ID=sa;Password=Exgadetsa01"
 #End Region
 #Region "VARIABLES"
     Public _usr As New Clase_Usuario
@@ -307,22 +311,17 @@ Module MAIN
             conexion = "Data Source=" + txt.ToString + ",1433\SERVER1; Initial Catalog=BASE_EXGADET; Persist Security Info=True;User ID=sa;Password=Exgadetsa01"
             conexionIntegral = "Data Source=" + txt.ToString + ",1433\SERVER1; Initial Catalog=Sistema_Integral_Exgadet; Persist Security Info=True;User ID=sa;Password=Exgadetsa01"
         Else
-            '##### DESTOCK #########
-            'conexion = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Bases\Almacenes\BASE_EXGADET.mdf;Integrated Security=True;Connect Timeout=30"
-            'conexionIntegral = "Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Bases\Bace_CRC.mdf;Integrated Security=True;Connect Timeout=200;User Instance=True"
-            '##### DESTOCK OFICINA ####
-            'conexion = "Data Source=.;AttachDbFilename=C:\Bases\BASE_EXGADET.mdf;Integrated Security=True;Connect Timeout=60;User Instance=True"
-            'conexionIntegral = "Data Source=.;AttachDbFilename=C:\Bases\Bace_CRC.mdf;Integrated Security=True;Connect Timeout=60;User Instance=True"
-            'conexion = "Data Source=TERMINAL108;Initial Catalog=BASE_EXGADET;Integrated Security=True"
-            'conexionIntegral = "Data Source=TERMINAL108;Initial Catalog=Sistema_Integral_Exgadet;Integrated Security=True"
-            '##### EN LA OFICINA ####
+            '##### CLON
+            'conexion = "Data Source=192.168.1.222;Initial Catalog=BASE_EXGADET_CLON;User ID=sa;Password=Exgadetsa01"
+            'conexionIntegral = "Data Source=192.168.1.222;Initial Catalog=Sistema_Integral_CLON;Persist Security Info=True;User ID=sa;Password=Exgadetsa01"
+            '#### General
             conexion = "Data Source=192.168.1.222;Initial Catalog=BASE_EXGADET;User ID=sa;Password=Exgadetsa01"
-            conexionIntegral = "Data Source=192.168.1.222;Initial Catalog=Sistema_Integral_Exgadet;Persist Security Info=True;User ID=sa;Password=Exgadetsa01"
-            ' conexion = "Data Source=SERVER2;Initial Catalog=BASE_EXGADET;User ID=sa;Password=exgadetsa01"
-            'conexionIntegral = "Data Source=SERVER2;Initial Catalog=Sistema_Integral_Exgadet;Persist Security Info=True;User ID=sa;Password=exgadetsa01"
-            '##### OTRAS ####
-            'conexion = "Data Source=192.168.1.222;Initial Catalog=BASE_EXGADET;User ID=sa;Password=Exgadetsa01"
-            'conexionIntegral = "Data Source=192.168.1.222;Initial Catalog=Sistema_Integral_Exgadet;Persist Security Info=True;User ID=sa;Password=Exgadetsa01"
+            conexionIntegral = "Data Source=192.168.1.222;Initial Catalog=Sistema_Integral_Exgadet;User ID=sa;Password=Exgadetsa01"
+
+            '#### CASA 
+            ' conexion = "Data Source=DESKTOP-VNROD0A;Initial Catalog=BASE_EXGADET;User ID=sa;Password=Ortiz01A"
+            'conexionIntegral = "Data Source=DESKTOP-VNROD0A;Initial Catalog=Sistema_Integral_Exgadet;User ID=sa;Password=Ortiz01A"
+
         End If
     End Sub
     Public Sub imagenes()

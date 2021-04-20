@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSListado" targetNamespace="http://tempuri.org/DSListado.xsd" xmlns:mstns="http://tempuri.org/DSListado.xsd" xmlns="http://tempuri.org/DSListado.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSListado" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DSListado" msprop:Generator_UserDSName="DSListado">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ListadoMedLiberados" msprop:Generator_TableClassName="ListadoMedLiberadosDataTable" msprop:Generator_TableVarName="tableListadoMedLiberados" msprop:Generator_TablePropName="ListadoMedLiberados" msprop:Generator_RowDeletingName="ListadoMedLiberadosRowDeleting" msprop:Generator_RowChangingName="ListadoMedLiberadosRowChanging" msprop:Generator_RowEvHandlerName="ListadoMedLiberadosRowChangeEventHandler" msprop:Generator_RowDeletedName="ListadoMedLiberadosRowDeleted" msprop:Generator_UserTableName="ListadoMedLiberados" msprop:Generator_RowChangedName="ListadoMedLiberadosRowChanged" msprop:Generator_RowEvArgName="ListadoMedLiberadosRowChangeEvent" msprop:Generator_RowClassName="ListadoMedLiberadosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MEDIDOR" msprop:Generator_ColumnVarNameInTable="columnMEDIDOR" msprop:Generator_ColumnPropNameInRow="MEDIDOR" msprop:Generator_ColumnPropNameInTable="MEDIDORColumn" msprop:Generator_UserColumnName="MEDIDOR" type="xs:string" minOccurs="0" />
+              <xs:element name="POLIZA" msprop:Generator_ColumnVarNameInTable="columnPOLIZA" msprop:Generator_ColumnPropNameInRow="POLIZA" msprop:Generator_ColumnPropNameInTable="POLIZAColumn" msprop:Generator_UserColumnName="POLIZA" type="xs:string" minOccurs="0" />
+              <xs:element name="LOTE" msprop:Generator_ColumnVarNameInTable="columnLOTE" msprop:Generator_ColumnPropNameInRow="LOTE" msprop:Generator_ColumnPropNameInTable="LOTEColumn" msprop:Generator_UserColumnName="LOTE" type="xs:string" minOccurs="0" />
+              <xs:element name="F_CUSTODIA" msprop:Generator_ColumnVarNameInTable="columnF_CUSTODIA" msprop:Generator_ColumnPropNameInRow="F_CUSTODIA" msprop:Generator_ColumnPropNameInTable="F_CUSTODIAColumn" msprop:Generator_UserColumnName="F_CUSTODIA" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="ListadoMedLiberadosKey1">
+      <xs:selector xpath=".//mstns:ListadoMedLiberados" />
+      <xs:field xpath="mstns:MEDIDOR" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

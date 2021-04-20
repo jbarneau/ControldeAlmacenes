@@ -29,7 +29,7 @@ Public Class PLOGI001
         Try
             prueba.Open()
             If prueba.State = ConnectionState.Open Then
-                prueba.Close()
+                ' prueba.Close()
                 If TextBox2.Text = Nothing Then
                     Mensaje.MERRO002()
                     TextBox2.Focus()
@@ -67,7 +67,10 @@ Public Class PLOGI001
             End If
 
         Catch ex As Exception
-            Throw New Exception(ex.Message)
+            MessageBox.Show(ex.Message)
+
+        Finally
+            prueba.Close()
             'Mensaje.MERRO001()
         End Try
 

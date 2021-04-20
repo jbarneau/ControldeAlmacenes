@@ -134,6 +134,7 @@ Partial Class PMAIN001
         Me.PALMA044T = New System.Windows.Forms.ToolStripMenuItem()
         Me.PALMA036T = New System.Windows.Forms.ToolStripMenuItem()
         Me.TRANSFERENCIACAJONESToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.REMITODEVOLUCIONToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TRANFERENICADEPOToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PALMA013T = New System.Windows.Forms.ToolStripMenuItem()
         Me.PALMA014T = New System.Windows.Forms.ToolStripMenuItem()
@@ -156,7 +157,9 @@ Partial Class PMAIN001
         Me.LineShape1 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.TextBox13 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.REMITODEVOLUCIONToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TextBox14 = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.MEDSENCUSTODIAVENCIDOSToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -741,6 +744,7 @@ Partial Class PMAIN001
         Me.PPETI003T.Name = "PPETI003T"
         Me.PPETI003T.Size = New System.Drawing.Size(206, 22)
         Me.PPETI003T.Text = "IMPRESION PET."
+        Me.PPETI003T.Visible = False
         '
         'PPETI004T
         '
@@ -912,7 +916,7 @@ Partial Class PMAIN001
         '
         'DEVOMEDIDORESToolStripMenuItem
         '
-        Me.DEVOMEDIDORESToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PALMA039T, Me.PALMA043T, Me.PALMA046T, Me.PALMA041T, Me.PALMA042T, Me.PALMA044T, Me.PALMA036T, Me.TRANSFERENCIACAJONESToolStripMenuItem, Me.REMITODEVOLUCIONToolStripMenuItem})
+        Me.DEVOMEDIDORESToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PALMA039T, Me.PALMA043T, Me.PALMA046T, Me.PALMA041T, Me.PALMA042T, Me.PALMA044T, Me.PALMA036T, Me.TRANSFERENCIACAJONESToolStripMenuItem, Me.REMITODEVOLUCIONToolStripMenuItem, Me.MEDSENCUSTODIAVENCIDOSToolStripMenuItem})
         Me.DEVOMEDIDORESToolStripMenuItem.Name = "DEVOMEDIDORESToolStripMenuItem"
         Me.DEVOMEDIDORESToolStripMenuItem.Size = New System.Drawing.Size(119, 20)
         Me.DEVOMEDIDORESToolStripMenuItem.Text = "DEVO. MEDIDORES"
@@ -964,6 +968,12 @@ Partial Class PMAIN001
         Me.TRANSFERENCIACAJONESToolStripMenuItem.Name = "TRANSFERENCIACAJONESToolStripMenuItem"
         Me.TRANSFERENCIACAJONESToolStripMenuItem.Size = New System.Drawing.Size(239, 22)
         Me.TRANSFERENCIACAJONESToolStripMenuItem.Text = "TRANSFERENCIA CAJONES"
+        '
+        'REMITODEVOLUCIONToolStripMenuItem
+        '
+        Me.REMITODEVOLUCIONToolStripMenuItem.Name = "REMITODEVOLUCIONToolStripMenuItem"
+        Me.REMITODEVOLUCIONToolStripMenuItem.Size = New System.Drawing.Size(239, 22)
+        Me.REMITODEVOLUCIONToolStripMenuItem.Text = "REMITO DEVOLUCION"
         '
         'TRANFERENICADEPOToolStripMenuItem
         '
@@ -1118,17 +1128,39 @@ Partial Class PMAIN001
         Me.Label2.Text = "Transferencias sin confirmar"
         Me.Label2.Visible = False
         '
-        'REMITODEVOLUCIONToolStripMenuItem
+        'TextBox14
         '
-        Me.REMITODEVOLUCIONToolStripMenuItem.Name = "REMITODEVOLUCIONToolStripMenuItem"
-        Me.REMITODEVOLUCIONToolStripMenuItem.Size = New System.Drawing.Size(239, 22)
-        Me.REMITODEVOLUCIONToolStripMenuItem.Text = "REMITO DEVOLUCION"
+        Me.TextBox14.Enabled = False
+        Me.TextBox14.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox14.Location = New System.Drawing.Point(968, 376)
+        Me.TextBox14.Name = "TextBox14"
+        Me.TextBox14.Size = New System.Drawing.Size(82, 26)
+        Me.TextBox14.TabIndex = 65
+        Me.TextBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(609, 376)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(268, 24)
+        Me.Label4.TabIndex = 64
+        Me.Label4.Text = "Medidores Pendientes a Tratar"
+        '
+        'MEDSENCUSTODIAVENCIDOSToolStripMenuItem
+        '
+        Me.MEDSENCUSTODIAVENCIDOSToolStripMenuItem.Name = "MEDSENCUSTODIAVENCIDOSToolStripMenuItem"
+        Me.MEDSENCUSTODIAVENCIDOSToolStripMenuItem.Size = New System.Drawing.Size(243, 22)
+        Me.MEDSENCUSTODIAVENCIDOSToolStripMenuItem.Text = "MEDS. EN CUSTODIA VENCIDOS"
         '
         'PMAIN001
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1185, 518)
+        Me.Controls.Add(Me.TextBox14)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.TextBox13)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.LinkLabel1)
@@ -1311,4 +1343,7 @@ Partial Class PMAIN001
     Friend WithEvents TextBox13 As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents REMITODEVOLUCIONToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TextBox14 As TextBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents MEDSENCUSTODIAVENCIDOSToolStripMenuItem As ToolStripMenuItem
 End Class

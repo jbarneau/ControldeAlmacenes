@@ -214,7 +214,7 @@ Public Class PALMA029
                             If MAIN.material.Item(G) = _MATERIAL Then
                                 Medidor.MODIFICAR_MEDIDOR_ESTADO_9(MAIN.serie.Item(G), _MATERIAL, _FECHA, _DEPOSITO, _usr.Obt_Usr)
                                 Medidor.Grabar_Mov_Medi(MAIN.serie.Item(G), _MATERIAL, _NREMITO, _FECHA, _ALMACEN, _DEPOSITO)
-                                med_rettirar.GRABAR_MEDIDOR2(MAIN.serie.Item(G), Date.Today, _usr.Obt_Usr, _DEPOSITO, CODREZAGO(_MATERIAL), "SP", "01", Date.Today, 0, 0, "SO", "SP")
+                                'med_rettirar.GRABAR_MEDIDOR2(MAIN.serie.Item(G), Date.Today, _usr.Obt_Usr, _DEPOSITO, CODREZAGO(_MATERIAL), "SP", "01", Date.Today, 0, 0, "SO", "SP")
                             End If
                         Next
                     End If

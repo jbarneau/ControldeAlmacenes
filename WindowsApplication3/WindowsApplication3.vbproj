@@ -17,7 +17,7 @@
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>\\192.168.1.222\sector_sistemas\Sistema Almacenes\</PublishUrl>
+    <PublishUrl>\\192.168.1.222\sector_sistemas\SistemaAlmacenes2020\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -30,7 +30,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>167</ApplicationRevision>
+    <ApplicationRevision>187</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -72,7 +72,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>0202D32E64B1C81EFC3BF38DBAE375A292EDC82A</ManifestCertificateThumbprint>
@@ -125,59 +125,105 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
-    <Compile Include="Clase_administrador.vb" />
-    <Compile Include="Clase_maquina.vb" />
-    <Compile Include="Clase_mensaje.vb" />
-    <Compile Include="Class_OC.vb" />
-    <Compile Include="Class_UnMaterial.vb" />
-    <Compile Include="Class_UnOperario.vb" />
-    <Compile Include="Class_UnProveedor.vb" />
-    <Compile Include="Clas_Almacen.vb" />
-    <Compile Include="Clas_Medidor.vb" />
-    <Compile Include="Clase_med_retirar.vb" />
-    <Compile Include="CrystalReport1.vb">
+    <Compile Include="Clases\Clase_administrador.vb" />
+    <Compile Include="Clases\Clase_maquina.vb" />
+    <Compile Include="Clases\Clase_mensaje.vb" />
+    <Compile Include="Clases\Class_OC.vb" />
+    <Compile Include="Clases\Class_UnMaterial.vb" />
+    <Compile Include="Clases\Class_UnOperario.vb" />
+    <Compile Include="Clases\Class_UnProveedor.vb" />
+    <Compile Include="Clases\Clas_Almacen.vb" />
+    <Compile Include="Clases\Clas_Medidor.vb" />
+    <Compile Include="Clases\Clase_med_retirar.vb" />
+    <Compile Include="Ordenes de Compra\PCOMP005.Designer.vb">
+      <DependentUpon>PCOMP005.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ordenes de Compra\PCOMP005.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ordenes de Compra\PCOMP006.Designer.vb">
+      <DependentUpon>PCOMP006.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ordenes de Compra\PCOMP006.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\CrystalReport1.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CrystalReport1.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="INSTRUMENTO.Designer.vb">
+    <Compile Include="DataSet\DSListado.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSListado.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\DS_OC.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_OC.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\INSTRUMENTO.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>INSTRUMENTO.xsd</DependentUpon>
     </Compile>
-    <Compile Include="INSTRUMENTO.vb">
+    <Compile Include="DataSet\INSTRUMENTO.vb">
       <DependentUpon>INSTRUMENTO.xsd</DependentUpon>
     </Compile>
-    <Compile Include="LISTADO_CALIBRACION.vb">
+    <Compile Include="Reportes\ListadoMedLiberados1.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListadoMedLiberados.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\LISTADO_CALIBRACION.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LISTADO_CALIBRACION.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="MedDevueltos.vb" />
-    <Compile Include="PALMA005-BIS.Designer.vb">
+    <Compile Include="Clases\MedDevueltos.vb" />
+    <Compile Include="Reportes\OCCONTRATO.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OCCONTRATO.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\OrdenDeCompraSinValor.vb">
+      <DependentUpon>OrdenDeCompraSinValor.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reportes\OrdenDeCompra.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrdenDeCompra.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Entrega_Materiales\PALMA005-BIS.Designer.vb">
       <DependentUpon>PALMA005-BIS.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA005-BIS.vb">
+    <Compile Include="Entrega_Materiales\PALMA005-BIS.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA016.Designer.vb">
+    <Compile Include="Entrega_Maquinas\PALMA016.Designer.vb">
       <DependentUpon>PALMA016.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA016.vb">
+    <Compile Include="Entrega_Maquinas\PALMA016.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA021-BIS.Designer.vb">
+    <Compile Include="Entrega_Maquinas\PALMA021-BIS.Designer.vb">
       <DependentUpon>PALMA021-BIS.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA021-BIS.vb">
+    <Compile Include="Entrega_Maquinas\PALMA021-BIS.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA022.Designer.vb">
+    <Compile Include="Medidores_Nuevos\PALMA022.Designer.vb">
       <DependentUpon>PALMA022.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA022.vb">
+    <Compile Include="Medidores_Nuevos\PALMA022.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PALMA031-BIS.Designer.vb">
@@ -186,76 +232,82 @@
     <Compile Include="PALMA031-BIS.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA035.Designer.vb">
+    <Compile Include="Reportes\ReporteOrdenCompra.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteOrdenCompra.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Tratamiento_medidores\PALMA035.Designer.vb">
       <DependentUpon>PALMA035.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA035.vb">
+    <Compile Include="Tratamiento_medidores\PALMA035.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA036BIS.Designer.vb">
+    <Compile Include="Tratamiento_medidores\PALMA036BIS.Designer.vb">
       <DependentUpon>PALMA036BIS.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA036BIS.vb">
+    <Compile Include="Tratamiento_medidores\PALMA036BIS.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA036BIS2.Designer.vb">
+    <Compile Include="Tratamiento_medidores\PALMA036BIS2.Designer.vb">
       <DependentUpon>PALMA036BIS2.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA036BIS2.vb">
+    <Compile Include="Tratamiento_medidores\PALMA036BIS2.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA036BIS3.Designer.vb">
+    <Compile Include="Tratamiento_medidores\PALMA036BIS3.Designer.vb">
       <DependentUpon>PALMA036BIS3.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA036BIS3.vb">
+    <Compile Include="Tratamiento_medidores\PALMA036BIS3.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA036BIS4.Designer.vb">
+    <Compile Include="Tratamiento_medidores\PALMA036BIS4.Designer.vb">
       <DependentUpon>PALMA036BIS4.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA036BIS4.vb">
+    <Compile Include="Tratamiento_medidores\PALMA036BIS4.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA040.Designer.vb">
+    <Compile Include="Tratamiento_medidores\PALMA040.Designer.vb">
       <DependentUpon>PALMA040.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA040.vb">
+    <Compile Include="Tratamiento_medidores\PALMA040.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA010BIS.Designer.vb">
+    <Compile Include="Entrega_Maquinas\PALMA010BIS.Designer.vb">
       <DependentUpon>PALMA010BIS.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA010BIS.vb">
+    <Compile Include="Entrega_Maquinas\PALMA010BIS.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA010BIS2.Designer.vb">
+    <Compile Include="Entrega_Maquinas\PALMA010BIS2.Designer.vb">
       <DependentUpon>PALMA010BIS2.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA010BIS2.vb">
+    <Compile Include="Entrega_Maquinas\PALMA010BIS2.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA011.Designer.vb">
+    <Compile Include="Entrega_Maquinas\PALMA011.Designer.vb">
       <DependentUpon>PALMA011.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA011.vb">
+    <Compile Include="Entrega_Maquinas\PALMA011.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA012-BIS.Designer.vb">
+    <Compile Include="Entrega_Maquinas\PALMA012-BIS.Designer.vb">
       <DependentUpon>PALMA012-BIS.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA012-BIS.vb">
+    <Compile Include="Entrega_Maquinas\PALMA012-BIS.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA021.Designer.vb">
+    <Compile Include="Entrega_Maquinas\PALMA021.Designer.vb">
       <DependentUpon>PALMA021.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA021.vb">
+    <Compile Include="Entrega_Maquinas\PALMA021.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA021bis2.Designer.vb">
+    <Compile Include="Entrega_Maquinas\PALMA021bis2.Designer.vb">
       <DependentUpon>PALMA021bis2.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA021bis2.vb">
+    <Compile Include="Entrega_Maquinas\PALMA021bis2.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PALMA032.Designer.vb">
@@ -264,88 +316,88 @@
     <Compile Include="PALMA032.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA034.Designer.vb">
+    <Compile Include="Tratamiento_medidores\PALMA034.Designer.vb">
       <DependentUpon>PALMA034.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA034.vb">
+    <Compile Include="Tratamiento_medidores\PALMA034.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA036.Designer.vb">
+    <Compile Include="Tratamiento_medidores\PALMA036.Designer.vb">
       <DependentUpon>PALMA036.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA036.vb">
+    <Compile Include="Tratamiento_medidores\PALMA036.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA037.Designer.vb">
+    <Compile Include="Tratamiento_medidores\PALMA037.Designer.vb">
       <DependentUpon>PALMA037.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA037.vb">
+    <Compile Include="Tratamiento_medidores\PALMA037.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA038.Designer.vb">
+    <Compile Include="Tratamiento_medidores\PALMA038.Designer.vb">
       <DependentUpon>PALMA038.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA038.vb">
+    <Compile Include="Tratamiento_medidores\PALMA038.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA039.Designer.vb">
+    <Compile Include="Tratamiento_medidores\PALMA039.Designer.vb">
       <DependentUpon>PALMA039.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA039.vb">
+    <Compile Include="Tratamiento_medidores\PALMA039.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA039BIS.Designer.vb">
+    <Compile Include="Tratamiento_medidores\PALMA039BIS.Designer.vb">
       <DependentUpon>PALMA039BIS.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA039BIS.vb">
+    <Compile Include="Tratamiento_medidores\PALMA039BIS.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA041.Designer.vb">
+    <Compile Include="Tratamiento_medidores\PALMA041.Designer.vb">
       <DependentUpon>PALMA041.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA041.vb">
+    <Compile Include="Tratamiento_medidores\PALMA041.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA042.Designer.vb">
+    <Compile Include="Tratamiento_medidores\PALMA042.Designer.vb">
       <DependentUpon>PALMA042.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA042.vb">
+    <Compile Include="Tratamiento_medidores\PALMA042.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA042BIS.Designer.vb">
+    <Compile Include="Tratamiento_medidores\PALMA042BIS.Designer.vb">
       <DependentUpon>PALMA042BIS.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA042BIS.vb">
+    <Compile Include="Tratamiento_medidores\PALMA042BIS.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA043.Designer.vb">
+    <Compile Include="Tratamiento_medidores\PALMA043.Designer.vb">
       <DependentUpon>PALMA043.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA043.vb">
+    <Compile Include="Tratamiento_medidores\PALMA043.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA044.Designer.vb">
+    <Compile Include="Tratamiento_medidores\PALMA044.Designer.vb">
       <DependentUpon>PALMA044.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA044.vb">
+    <Compile Include="Tratamiento_medidores\PALMA044.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA046.Designer.vb">
+    <Compile Include="Tratamiento_medidores\PALMA046.Designer.vb">
       <DependentUpon>PALMA046.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA046.vb">
+    <Compile Include="Tratamiento_medidores\PALMA046.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA046BIS-3.Designer.vb">
+    <Compile Include="Tratamiento_medidores\PALMA046BIS-3.Designer.vb">
       <DependentUpon>PALMA046BIS-3.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA046BIS-3.vb">
+    <Compile Include="Tratamiento_medidores\PALMA046BIS-3.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA046BIS.Designer.vb">
+    <Compile Include="Tratamiento_medidores\PALMA046BIS.Designer.vb">
       <DependentUpon>PALMA046BIS.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA046BIS.vb">
+    <Compile Include="Tratamiento_medidores\PALMA046BIS.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PALMA047.Designer.vb">
@@ -354,148 +406,154 @@
     <Compile Include="PALMA047.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA048.Designer.vb">
+    <Compile Include="Entrega_Maquinas\PALMA048.Designer.vb">
       <DependentUpon>PALMA048.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA048.vb">
+    <Compile Include="Entrega_Maquinas\PALMA048.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA049.Designer.vb">
+    <Compile Include="Tratamiento_medidores\PALMA049.Designer.vb">
       <DependentUpon>PALMA049.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA049.vb">
+    <Compile Include="Tratamiento_medidores\PALMA049.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PCIUD003.Designer.vb">
+    <Compile Include="Administracion\PCIUD003.Designer.vb">
       <DependentUpon>PCIUD003.vb</DependentUpon>
     </Compile>
-    <Compile Include="PCIUD003.vb">
+    <Compile Include="Administracion\PCIUD003.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PCOM001_BIS.Designer.vb">
+    <Compile Include="Administracion\PCOM001_BIS.Designer.vb">
       <DependentUpon>PCOM001_BIS.vb</DependentUpon>
     </Compile>
-    <Compile Include="PCOM001_BIS.vb">
+    <Compile Include="Administracion\PCOM001_BIS.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PCOMB002.Designer.vb">
+    <Compile Include="Ordenes de Compra\PCOMP001_MOD.Designer.vb">
+      <DependentUpon>PCOMP001_MOD.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ordenes de Compra\PCOMP001_MOD.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Combustibles\PCOMB002.Designer.vb">
       <DependentUpon>PCOMB002.vb</DependentUpon>
     </Compile>
-    <Compile Include="PCOMB002.vb">
+    <Compile Include="Combustibles\PCOMB002.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PCOMB002bis.Designer.vb">
+    <Compile Include="Combustibles\PCOMB002bis.Designer.vb">
       <DependentUpon>PCOMB002bis.vb</DependentUpon>
     </Compile>
-    <Compile Include="PCOMB002bis.vb">
+    <Compile Include="Combustibles\PCOMB002bis.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PCOMB003.Designer.vb">
+    <Compile Include="Combustibles\PCOMB003.Designer.vb">
       <DependentUpon>PCOMB003.vb</DependentUpon>
     </Compile>
-    <Compile Include="PCOMB003.vb">
+    <Compile Include="Combustibles\PCOMB003.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PCOMB004-bis.Designer.vb">
+    <Compile Include="Combustibles\PCOMB004-bis.Designer.vb">
       <DependentUpon>PCOMB004-bis.vb</DependentUpon>
     </Compile>
-    <Compile Include="PCOMB004-bis.vb">
+    <Compile Include="Combustibles\PCOMB004-bis.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PCOMB004.Designer.vb">
+    <Compile Include="Combustibles\PCOMB004.Designer.vb">
       <DependentUpon>PCOMB004.vb</DependentUpon>
     </Compile>
-    <Compile Include="PCOMB004.vb">
+    <Compile Include="Combustibles\PCOMB004.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PCOMB001.Designer.vb">
+    <Compile Include="Combustibles\PCOMB001.Designer.vb">
       <DependentUpon>PCOMB001.vb</DependentUpon>
     </Compile>
-    <Compile Include="PCOMB001.vb">
+    <Compile Include="Combustibles\PCOMB001.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PCOMB005.Designer.vb">
+    <Compile Include="Combustibles\PCOMB005.Designer.vb">
       <DependentUpon>PCOMB005.vb</DependentUpon>
     </Compile>
-    <Compile Include="PCOMB005.vb">
+    <Compile Include="Combustibles\PCOMB005.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PCOMB006.Designer.vb">
+    <Compile Include="Combustibles\PCOMB006.Designer.vb">
       <DependentUpon>PCOMB006.vb</DependentUpon>
     </Compile>
-    <Compile Include="PCOMB006.vb">
+    <Compile Include="Combustibles\PCOMB006.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PCONF003.Designer.vb">
+    <Compile Include="Ordenes de Compra\PCONF003.Designer.vb">
       <DependentUpon>PCONF003.vb</DependentUpon>
     </Compile>
-    <Compile Include="PCONF003.vb">
+    <Compile Include="Ordenes de Compra\PCONF003.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PCONS001.Designer.vb">
+    <Compile Include="Informes\PCONS001.Designer.vb">
       <DependentUpon>PCONS001.vb</DependentUpon>
     </Compile>
-    <Compile Include="PCONS001.vb">
+    <Compile Include="Informes\PCONS001.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PCONS002.Designer.vb">
+    <Compile Include="Informes\PCONS002.Designer.vb">
       <DependentUpon>PCONS002.vb</DependentUpon>
     </Compile>
-    <Compile Include="PCONS002.vb">
+    <Compile Include="Informes\PCONS002.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PCONS003.Designer.vb">
+    <Compile Include="Informes\PCONS003.Designer.vb">
       <DependentUpon>PCONS003.vb</DependentUpon>
     </Compile>
-    <Compile Include="PCONS003.vb">
+    <Compile Include="Informes\PCONS003.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PCONT002.Designer.vb">
+    <Compile Include="Administracion\PCONT002.Designer.vb">
       <DependentUpon>PCONT002.vb</DependentUpon>
     </Compile>
-    <Compile Include="PCONT002.vb">
+    <Compile Include="Administracion\PCONT002.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PDEPO002.Designer.vb">
+    <Compile Include="Administracion\PDEPO002.Designer.vb">
       <DependentUpon>PDEPO002.vb</DependentUpon>
     </Compile>
-    <Compile Include="PDEPO002.vb">
+    <Compile Include="Administracion\PDEPO002.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PDEPO004.Designer.vb">
+    <Compile Include="Administracion\PDEPO004.Designer.vb">
       <DependentUpon>PDEPO004.vb</DependentUpon>
     </Compile>
-    <Compile Include="PDEPO004.vb">
+    <Compile Include="Administracion\PDEPO004.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PDEPO003.Designer.vb">
+    <Compile Include="Administracion\PDEPO003.Designer.vb">
       <DependentUpon>PDEPO003.vb</DependentUpon>
     </Compile>
-    <Compile Include="PDEPO003.vb">
+    <Compile Include="Administracion\PDEPO003.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PDEPO003BIS.Designer.vb">
+    <Compile Include="Administracion\PDEPO003BIS.Designer.vb">
       <DependentUpon>PDEPO003BIS.vb</DependentUpon>
     </Compile>
-    <Compile Include="PDEPO003BIS.vb">
+    <Compile Include="Administracion\PDEPO003BIS.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PINFO008.Designer.vb">
+    <Compile Include="Informes\PINFO008.Designer.vb">
       <DependentUpon>PINFO008.vb</DependentUpon>
     </Compile>
-    <Compile Include="PINFO008.vb">
+    <Compile Include="Informes\PINFO008.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PINFO008BIS.Designer.vb">
+    <Compile Include="Informes\PINFO008BIS.Designer.vb">
       <DependentUpon>PINFO008BIS.vb</DependentUpon>
     </Compile>
-    <Compile Include="PINFO008BIS.vb">
+    <Compile Include="Informes\PINFO008BIS.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PINFO009.Designer.vb">
+    <Compile Include="Informes\PINFO009.Designer.vb">
       <DependentUpon>PINFO009.vb</DependentUpon>
     </Compile>
-    <Compile Include="PINFO009.vb">
+    <Compile Include="Informes\PINFO009.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PMAIL001.Designer.vb">
@@ -505,17 +563,17 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MAIN.vb" />
-    <Compile Include="Clase_Usuario.vb" />
-    <Compile Include="PALMA013BIS.Designer.vb">
+    <Compile Include="Clases\Clase_Usuario.vb" />
+    <Compile Include="Tranferencias_Almacenes\PALMA013BIS.Designer.vb">
       <DependentUpon>PALMA013BIS.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA013BIS.vb">
+    <Compile Include="Tranferencias_Almacenes\PALMA013BIS.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA014BIS.Designer.vb">
+    <Compile Include="Tranferencias_Almacenes\PALMA014BIS.Designer.vb">
       <DependentUpon>PALMA014BIS.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA014BIS.vb">
+    <Compile Include="Tranferencias_Almacenes\PALMA014BIS.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PALMA031.Designer.vb">
@@ -530,82 +588,82 @@
     <Compile Include="PALER001.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA005.Designer.vb">
+    <Compile Include="Entrega_Materiales\PALMA005.Designer.vb">
       <DependentUpon>PALMA005.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA005.vb">
+    <Compile Include="Entrega_Materiales\PALMA005.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA002.Designer.vb">
+    <Compile Include="Entrega_Materiales\PALMA002.Designer.vb">
       <DependentUpon>PALMA002.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA002.vb">
+    <Compile Include="Entrega_Materiales\PALMA002.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA003.Designer.vb">
+    <Compile Include="Entrega_Materiales\PALMA003.Designer.vb">
       <DependentUpon>PALMA003.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA003.vb">
+    <Compile Include="Entrega_Materiales\PALMA003.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA004.Designer.vb">
+    <Compile Include="Entrega_Materiales\PALMA004.Designer.vb">
       <DependentUpon>PALMA004.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA004.vb">
+    <Compile Include="Entrega_Materiales\PALMA004.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA004BIS.Designer.vb">
+    <Compile Include="Entrega_Materiales\PALMA004BIS.Designer.vb">
       <DependentUpon>PALMA004BIS.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA004BIS.vb">
+    <Compile Include="Entrega_Materiales\PALMA004BIS.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA006.Designer.vb">
+    <Compile Include="Entrega_Ropa\PALMA006.Designer.vb">
       <DependentUpon>PALMA006.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA006.vb">
+    <Compile Include="Entrega_Ropa\PALMA006.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA007.Designer.vb">
+    <Compile Include="Entrega_Ropa\PALMA007.Designer.vb">
       <DependentUpon>PALMA007.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA007.vb">
+    <Compile Include="Entrega_Ropa\PALMA007.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA008.Designer.vb">
+    <Compile Include="Entrega_Herramienta\PALMA008.Designer.vb">
       <DependentUpon>PALMA008.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA008.vb">
+    <Compile Include="Entrega_Herramienta\PALMA008.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA009.Designer.vb">
+    <Compile Include="Entrega_Herramienta\PALMA009.Designer.vb">
       <DependentUpon>PALMA009.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA009.vb">
+    <Compile Include="Entrega_Herramienta\PALMA009.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA010.Designer.vb">
+    <Compile Include="Entrega_Maquinas\PALMA010.Designer.vb">
       <DependentUpon>PALMA010.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA010.vb">
+    <Compile Include="Entrega_Maquinas\PALMA010.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA012.Designer.vb">
+    <Compile Include="Entrega_Maquinas\PALMA012.Designer.vb">
       <DependentUpon>PALMA012.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA012.vb">
+    <Compile Include="Entrega_Maquinas\PALMA012.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA013.Designer.vb">
+    <Compile Include="Tranferencias_Almacenes\PALMA013.Designer.vb">
       <DependentUpon>PALMA013.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA013.vb">
+    <Compile Include="Tranferencias_Almacenes\PALMA013.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA014.Designer.vb">
+    <Compile Include="Tranferencias_Almacenes\PALMA014.Designer.vb">
       <DependentUpon>PALMA014.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA014.vb">
+    <Compile Include="Tranferencias_Almacenes\PALMA014.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PALMA015.Designer.vb">
@@ -614,46 +672,46 @@
     <Compile Include="PALMA015.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA017.Designer.vb">
+    <Compile Include="Medidores_Nuevos\PALMA017.Designer.vb">
       <DependentUpon>PALMA017.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA017.vb">
+    <Compile Include="Medidores_Nuevos\PALMA017.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA018.Designer.vb">
+    <Compile Include="Medidores_Nuevos\PALMA018.Designer.vb">
       <DependentUpon>PALMA018.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA018.vb">
+    <Compile Include="Medidores_Nuevos\PALMA018.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA019.Designer.vb">
+    <Compile Include="Medidores_Nuevos\PALMA019.Designer.vb">
       <DependentUpon>PALMA019.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA019.vb">
+    <Compile Include="Medidores_Nuevos\PALMA019.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA020.Designer.vb">
+    <Compile Include="Medidores_Nuevos\PALMA020.Designer.vb">
       <DependentUpon>PALMA020.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA020.vb">
+    <Compile Include="Medidores_Nuevos\PALMA020.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA025.Designer.vb">
+    <Compile Include="Entrega_Maquinas\PALMA025.Designer.vb">
       <DependentUpon>PALMA025.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA025.vb">
+    <Compile Include="Entrega_Maquinas\PALMA025.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA026.Designer.vb">
+    <Compile Include="Entrega_Materiales\PALMA026.Designer.vb">
       <DependentUpon>PALMA026.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA026.vb">
+    <Compile Include="Entrega_Materiales\PALMA026.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA027.Designer.vb">
+    <Compile Include="Tratamiento_medidores\PALMA027.Designer.vb">
       <DependentUpon>PALMA027.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA027.vb">
+    <Compile Include="Tratamiento_medidores\PALMA027.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PALMA028.Designer.vb">
@@ -674,118 +732,118 @@
     <Compile Include="PALMA030.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PALMA100.Designer.vb">
+    <Compile Include="Administracion\PALMA100.Designer.vb">
       <DependentUpon>PALMA100.vb</DependentUpon>
     </Compile>
-    <Compile Include="PALMA100.vb">
+    <Compile Include="Administracion\PALMA100.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PCARG001.Designer.vb">
+    <Compile Include="Medidores_Nuevos\PCARG001.Designer.vb">
       <DependentUpon>PCARG001.vb</DependentUpon>
     </Compile>
-    <Compile Include="PCARG001.vb">
+    <Compile Include="Medidores_Nuevos\PCARG001.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PCIUD001.Designer.vb">
+    <Compile Include="Administracion\PCIUD001.Designer.vb">
       <DependentUpon>PCIUD001.vb</DependentUpon>
     </Compile>
-    <Compile Include="PCIUD001.vb">
+    <Compile Include="Administracion\PCIUD001.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PCIUD002.Designer.vb">
+    <Compile Include="Administracion\PCIUD002.Designer.vb">
       <DependentUpon>PCIUD002.vb</DependentUpon>
     </Compile>
-    <Compile Include="PCIUD002.vb">
+    <Compile Include="Administracion\PCIUD002.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PCOMP001.Designer.vb">
+    <Compile Include="Ordenes de Compra\PCOMP001.Designer.vb">
       <DependentUpon>PCOMP001.vb</DependentUpon>
     </Compile>
-    <Compile Include="PCOMP001.vb">
+    <Compile Include="Ordenes de Compra\PCOMP001.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PCOMP002.Designer.vb">
+    <Compile Include="Ordenes de Compra\PCOMP002.Designer.vb">
       <DependentUpon>PCOMP002.vb</DependentUpon>
     </Compile>
-    <Compile Include="PCOMP002.vb">
+    <Compile Include="Ordenes de Compra\PCOMP002.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PCOMP003.Designer.vb">
+    <Compile Include="Ordenes de Compra\PCOMP003.Designer.vb">
       <DependentUpon>PCOMP003.vb</DependentUpon>
     </Compile>
-    <Compile Include="PCOMP003.vb">
+    <Compile Include="Ordenes de Compra\PCOMP003.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PCOMP004.Designer.vb">
+    <Compile Include="Ordenes de Compra\PCOMP004.Designer.vb">
       <DependentUpon>PCOMP004.vb</DependentUpon>
     </Compile>
-    <Compile Include="PCOMP004.vb">
+    <Compile Include="Ordenes de Compra\PCOMP004.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PCONF001.Designer.vb">
+    <Compile Include="Ordenes de Compra\PCONF001.Designer.vb">
       <DependentUpon>PCONF001.vb</DependentUpon>
     </Compile>
-    <Compile Include="PCONF001.vb">
+    <Compile Include="Ordenes de Compra\PCONF001.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PCONF002.Designer.vb">
+    <Compile Include="Peticiones\PCONF002.Designer.vb">
       <DependentUpon>PCONF002.vb</DependentUpon>
     </Compile>
-    <Compile Include="PCONF002.vb">
+    <Compile Include="Peticiones\PCONF002.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PCONT001.Designer.vb">
+    <Compile Include="Administracion\PCONT001.Designer.vb">
       <DependentUpon>PCONT001.vb</DependentUpon>
     </Compile>
-    <Compile Include="PCONT001.vb">
+    <Compile Include="Administracion\PCONT001.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PDEPO001.Designer.vb">
+    <Compile Include="Administracion\PDEPO001.Designer.vb">
       <DependentUpon>PDEPO001.vb</DependentUpon>
     </Compile>
-    <Compile Include="PDEPO001.vb">
+    <Compile Include="Administracion\PDEPO001.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PINFO001.Designer.vb">
+    <Compile Include="Informes\PINFO001.Designer.vb">
       <DependentUpon>PINFO001.vb</DependentUpon>
     </Compile>
-    <Compile Include="PINFO001.vb">
+    <Compile Include="Informes\PINFO001.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PINFO002.Designer.vb">
+    <Compile Include="Informes\PINFO002.Designer.vb">
       <DependentUpon>PINFO002.vb</DependentUpon>
     </Compile>
-    <Compile Include="PINFO002.vb">
+    <Compile Include="Informes\PINFO002.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PINFO003.Designer.vb">
+    <Compile Include="Informes\PINFO003.Designer.vb">
       <DependentUpon>PINFO003.vb</DependentUpon>
     </Compile>
-    <Compile Include="PINFO003.vb">
+    <Compile Include="Informes\PINFO003.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PINFO004.Designer.vb">
+    <Compile Include="Informes\PINFO004.Designer.vb">
       <DependentUpon>PINFO004.vb</DependentUpon>
     </Compile>
-    <Compile Include="PINFO004.vb">
+    <Compile Include="Informes\PINFO004.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PINFO005.Designer.vb">
+    <Compile Include="Informes\PINFO005.Designer.vb">
       <DependentUpon>PINFO005.vb</DependentUpon>
     </Compile>
-    <Compile Include="PINFO005.vb">
+    <Compile Include="Informes\PINFO005.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PINFO006.Designer.vb">
+    <Compile Include="Informes\PINFO006.Designer.vb">
       <DependentUpon>PINFO006.vb</DependentUpon>
     </Compile>
-    <Compile Include="PINFO006.vb">
+    <Compile Include="Informes\PINFO006.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PINFO007.Designer.vb">
+    <Compile Include="Informes\PINFO007.Designer.vb">
       <DependentUpon>PINFO007.vb</DependentUpon>
     </Compile>
-    <Compile Include="PINFO007.vb">
+    <Compile Include="Informes\PINFO007.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PLOGI001.Designer.vb">
@@ -816,320 +874,349 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="PMATE001.Designer.vb">
+    <Compile Include="Administracion\PMATE001.Designer.vb">
       <DependentUpon>PMATE001.vb</DependentUpon>
     </Compile>
-    <Compile Include="PMATE001.vb">
+    <Compile Include="Administracion\PMATE001.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PMATE002.Designer.vb">
+    <Compile Include="Administracion\PMATE002.Designer.vb">
       <DependentUpon>PMATE002.vb</DependentUpon>
     </Compile>
-    <Compile Include="PMATE002.vb">
+    <Compile Include="Administracion\PMATE002.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="POPER001.Designer.vb">
+    <Compile Include="Administracion\POPER001.Designer.vb">
       <DependentUpon>POPER001.vb</DependentUpon>
     </Compile>
-    <Compile Include="POPER001.vb">
+    <Compile Include="Administracion\POPER001.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="POPER002.Designer.vb">
+    <Compile Include="Administracion\POPER002.Designer.vb">
       <DependentUpon>POPER002.vb</DependentUpon>
     </Compile>
-    <Compile Include="POPER002.vb">
+    <Compile Include="Administracion\POPER002.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PPASS001.Designer.vb">
+    <Compile Include="Administracion\PPASS001.Designer.vb">
       <DependentUpon>PPASS001.vb</DependentUpon>
     </Compile>
-    <Compile Include="PPASS001.vb">
+    <Compile Include="Administracion\PPASS001.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PPERF001.Designer.vb">
+    <Compile Include="Administracion\PPERF001.Designer.vb">
       <DependentUpon>PPERF001.vb</DependentUpon>
     </Compile>
-    <Compile Include="PPERF001.vb">
+    <Compile Include="Administracion\PPERF001.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PPERF002.Designer.vb">
+    <Compile Include="Administracion\PPERF002.Designer.vb">
       <DependentUpon>PPERF002.vb</DependentUpon>
     </Compile>
-    <Compile Include="PPERF002.vb">
+    <Compile Include="Administracion\PPERF002.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PPERF003.Designer.vb">
+    <Compile Include="Administracion\PPERF003.Designer.vb">
       <DependentUpon>PPERF003.vb</DependentUpon>
     </Compile>
-    <Compile Include="PPERF003.vb">
+    <Compile Include="Administracion\PPERF003.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PPETI001.Designer.vb">
+    <Compile Include="Peticiones\PPETI001.Designer.vb">
       <DependentUpon>PPETI001.vb</DependentUpon>
     </Compile>
-    <Compile Include="PPETI001.vb">
+    <Compile Include="Peticiones\PPETI001.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PPETI002.Designer.vb">
+    <Compile Include="Peticiones\PPETI002.Designer.vb">
       <DependentUpon>PPETI002.vb</DependentUpon>
     </Compile>
-    <Compile Include="PPETI002.vb">
+    <Compile Include="Peticiones\PPETI002.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PPETI002BIS.Designer.vb">
+    <Compile Include="Peticiones\PPETI002BIS.Designer.vb">
       <DependentUpon>PPETI002BIS.vb</DependentUpon>
     </Compile>
-    <Compile Include="PPETI002BIS.vb">
+    <Compile Include="Peticiones\PPETI002BIS.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PPETI002BIS_2.Designer.vb">
+    <Compile Include="Peticiones\PPETI002BIS_2.Designer.vb">
       <DependentUpon>PPETI002BIS_2.vb</DependentUpon>
     </Compile>
-    <Compile Include="PPETI002BIS_2.vb">
+    <Compile Include="Peticiones\PPETI002BIS_2.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PPETI003.Designer.vb">
+    <Compile Include="Peticiones\PPETI003.Designer.vb">
       <DependentUpon>PPETI003.vb</DependentUpon>
     </Compile>
-    <Compile Include="PPETI003.vb">
+    <Compile Include="Peticiones\PPETI003.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PPETI004.Designer.vb">
+    <Compile Include="Peticiones\PPETI004.Designer.vb">
       <DependentUpon>PPETI004.vb</DependentUpon>
     </Compile>
-    <Compile Include="PPETI004.vb">
+    <Compile Include="Peticiones\PPETI004.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PPROV001.Designer.vb">
+    <Compile Include="Administracion\PPROV001.Designer.vb">
       <DependentUpon>PPROV001.vb</DependentUpon>
     </Compile>
-    <Compile Include="PPROV001.vb">
+    <Compile Include="Administracion\PPROV001.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PPROV003.Designer.vb">
+    <Compile Include="Administracion\PPROV003.Designer.vb">
       <DependentUpon>PPROV003.vb</DependentUpon>
     </Compile>
-    <Compile Include="PPROV003.vb">
+    <Compile Include="Administracion\PPROV003.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PUSER001.Designer.vb">
+    <Compile Include="Administracion\PUSER001.Designer.vb">
       <DependentUpon>PUSER001.vb</DependentUpon>
     </Compile>
-    <Compile Include="PUSER001.vb">
+    <Compile Include="Administracion\PUSER001.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Class_UnUsuario.vb" />
-    <Compile Include="PUSER002.Designer.vb">
+    <Compile Include="Clases\Class_UnUsuario.vb" />
+    <Compile Include="Administracion\PUSER002.Designer.vb">
       <DependentUpon>PUSER002.vb</DependentUpon>
     </Compile>
-    <Compile Include="PUSER002.vb">
+    <Compile Include="Administracion\PUSER002.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RemitoMedsDevueltos.vb">
+    <Compile Include="Reportes\RemitoMedsDevueltos.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RemitoMedsDevueltos.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="TIPO_DE_MAQUINA.vb" />
-    <Compile Include="Transpaso.vb" />
-    <Compile Include="UnMedidor.vb" />
-    <Compile Include="UnValeDeCombustible.vb" />
-    <Compile Include="ValeCombustible.vb">
+    <Compile Include="Clases\TIPO_DE_MAQUINA.vb" />
+    <Compile Include="Clases\Transpaso.vb" />
+    <Compile Include="Clases\UnMedidor.vb" />
+    <Compile Include="Clases\UnValeDeCombustible.vb" />
+    <Compile Include="Reportes\ValeCombustible.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ValeCombustible.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="vehiculo.vb" />
+    <Compile Include="Clases\vehiculo.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CrystalReport1.rpt">
+    <EmbeddedResource Include="Ordenes de Compra\PCOMP005.resx">
+      <DependentUpon>PCOMP005.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ordenes de Compra\PCOMP006.resx">
+      <DependentUpon>PCOMP006.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport1.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="LISTADO_CALIBRACION.rpt">
+    <EmbeddedResource Include="Reportes\ListadoMedLiberados.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ListadoMedLiberados1.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\LISTADO_CALIBRACION.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>LISTADO_CALIBRACION.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA005-BIS.resx">
+    <EmbeddedResource Include="Reportes\OCCONTRATO.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>OCCONTRATO.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\OrdenDeCompraSinValor.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>OrdenDeCompraSinValor.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\OrdenDeCompra.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>OrdenDeCompra.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Entrega_Materiales\PALMA005-BIS.resx">
       <DependentUpon>PALMA005-BIS.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA016.resx">
+    <EmbeddedResource Include="Entrega_Maquinas\PALMA016.resx">
       <DependentUpon>PALMA016.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA021-BIS.resx">
+    <EmbeddedResource Include="Entrega_Maquinas\PALMA021-BIS.resx">
       <DependentUpon>PALMA021-BIS.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA022.resx">
+    <EmbeddedResource Include="Medidores_Nuevos\PALMA022.resx">
       <DependentUpon>PALMA022.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PALMA031-BIS.resx">
       <DependentUpon>PALMA031-BIS.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA035.resx">
+    <EmbeddedResource Include="Reportes\ReporteOrdenCompra.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteOrdenCompra.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tratamiento_medidores\PALMA035.resx">
       <DependentUpon>PALMA035.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA036BIS.resx">
+    <EmbeddedResource Include="Tratamiento_medidores\PALMA036BIS.resx">
       <DependentUpon>PALMA036BIS.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA036BIS2.resx">
+    <EmbeddedResource Include="Tratamiento_medidores\PALMA036BIS2.resx">
       <DependentUpon>PALMA036BIS2.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA036BIS3.resx">
+    <EmbeddedResource Include="Tratamiento_medidores\PALMA036BIS3.resx">
       <DependentUpon>PALMA036BIS3.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA036BIS4.resx">
+    <EmbeddedResource Include="Tratamiento_medidores\PALMA036BIS4.resx">
       <DependentUpon>PALMA036BIS4.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA040.resx">
+    <EmbeddedResource Include="Tratamiento_medidores\PALMA040.resx">
       <DependentUpon>PALMA040.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA010BIS.resx">
+    <EmbeddedResource Include="Entrega_Maquinas\PALMA010BIS.resx">
       <DependentUpon>PALMA010BIS.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA010BIS2.resx">
+    <EmbeddedResource Include="Entrega_Maquinas\PALMA010BIS2.resx">
       <DependentUpon>PALMA010BIS2.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA011.resx">
+    <EmbeddedResource Include="Entrega_Maquinas\PALMA011.resx">
       <DependentUpon>PALMA011.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA012-BIS.resx">
+    <EmbeddedResource Include="Entrega_Maquinas\PALMA012-BIS.resx">
       <DependentUpon>PALMA012-BIS.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA021.resx">
+    <EmbeddedResource Include="Entrega_Maquinas\PALMA021.resx">
       <DependentUpon>PALMA021.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA021bis2.resx">
+    <EmbeddedResource Include="Entrega_Maquinas\PALMA021bis2.resx">
       <DependentUpon>PALMA021bis2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PALMA032.resx">
       <DependentUpon>PALMA032.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA034.resx">
+    <EmbeddedResource Include="Tratamiento_medidores\PALMA034.resx">
       <DependentUpon>PALMA034.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA036.resx">
+    <EmbeddedResource Include="Tratamiento_medidores\PALMA036.resx">
       <DependentUpon>PALMA036.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA037.resx">
+    <EmbeddedResource Include="Tratamiento_medidores\PALMA037.resx">
       <DependentUpon>PALMA037.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA038.resx">
+    <EmbeddedResource Include="Tratamiento_medidores\PALMA038.resx">
       <DependentUpon>PALMA038.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA039.resx">
+    <EmbeddedResource Include="Tratamiento_medidores\PALMA039.resx">
       <DependentUpon>PALMA039.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA039BIS.resx">
+    <EmbeddedResource Include="Tratamiento_medidores\PALMA039BIS.resx">
       <DependentUpon>PALMA039BIS.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA041.resx">
+    <EmbeddedResource Include="Tratamiento_medidores\PALMA041.resx">
       <DependentUpon>PALMA041.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA042.resx">
+    <EmbeddedResource Include="Tratamiento_medidores\PALMA042.resx">
       <DependentUpon>PALMA042.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA042BIS.resx">
+    <EmbeddedResource Include="Tratamiento_medidores\PALMA042BIS.resx">
       <DependentUpon>PALMA042BIS.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA043.resx">
+    <EmbeddedResource Include="Tratamiento_medidores\PALMA043.resx">
       <DependentUpon>PALMA043.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA044.resx">
+    <EmbeddedResource Include="Tratamiento_medidores\PALMA044.resx">
       <DependentUpon>PALMA044.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA046.resx">
+    <EmbeddedResource Include="Tratamiento_medidores\PALMA046.resx">
       <DependentUpon>PALMA046.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA046BIS-3.resx">
+    <EmbeddedResource Include="Tratamiento_medidores\PALMA046BIS-3.resx">
       <DependentUpon>PALMA046BIS-3.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA046BIS.resx">
+    <EmbeddedResource Include="Tratamiento_medidores\PALMA046BIS.resx">
       <DependentUpon>PALMA046BIS.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PALMA047.resx">
       <DependentUpon>PALMA047.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA048.resx">
+    <EmbeddedResource Include="Entrega_Maquinas\PALMA048.resx">
       <DependentUpon>PALMA048.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA049.resx">
+    <EmbeddedResource Include="Tratamiento_medidores\PALMA049.resx">
       <DependentUpon>PALMA049.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PCIUD003.resx">
+    <EmbeddedResource Include="Administracion\PCIUD003.resx">
       <DependentUpon>PCIUD003.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PCOM001_BIS.resx">
+    <EmbeddedResource Include="Administracion\PCOM001_BIS.resx">
       <DependentUpon>PCOM001_BIS.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PCOMB002.resx">
+    <EmbeddedResource Include="Ordenes de Compra\PCOMP001_MOD.resx">
+      <DependentUpon>PCOMP001_MOD.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Combustibles\PCOMB002.resx">
       <DependentUpon>PCOMB002.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PCOMB002bis.resx">
+    <EmbeddedResource Include="Combustibles\PCOMB002bis.resx">
       <DependentUpon>PCOMB002bis.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PCOMB003.resx">
+    <EmbeddedResource Include="Combustibles\PCOMB003.resx">
       <DependentUpon>PCOMB003.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PCOMB004-bis.resx">
+    <EmbeddedResource Include="Combustibles\PCOMB004-bis.resx">
       <DependentUpon>PCOMB004-bis.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PCOMB004.resx">
+    <EmbeddedResource Include="Combustibles\PCOMB004.resx">
       <DependentUpon>PCOMB004.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PCOMB001.resx">
+    <EmbeddedResource Include="Combustibles\PCOMB001.resx">
       <DependentUpon>PCOMB001.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PCOMB005.resx">
+    <EmbeddedResource Include="Combustibles\PCOMB005.resx">
       <DependentUpon>PCOMB005.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PCOMB006.resx">
+    <EmbeddedResource Include="Combustibles\PCOMB006.resx">
       <DependentUpon>PCOMB006.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PCONF003.resx">
+    <EmbeddedResource Include="Ordenes de Compra\PCONF003.resx">
       <DependentUpon>PCONF003.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PCONS001.resx">
+    <EmbeddedResource Include="Informes\PCONS001.resx">
       <DependentUpon>PCONS001.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PCONS002.resx">
+    <EmbeddedResource Include="Informes\PCONS002.resx">
       <DependentUpon>PCONS002.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PCONS003.resx">
+    <EmbeddedResource Include="Informes\PCONS003.resx">
       <DependentUpon>PCONS003.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PCONT002.resx">
+    <EmbeddedResource Include="Administracion\PCONT002.resx">
       <DependentUpon>PCONT002.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PDEPO002.resx">
+    <EmbeddedResource Include="Administracion\PDEPO002.resx">
       <DependentUpon>PDEPO002.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PDEPO004.resx">
+    <EmbeddedResource Include="Administracion\PDEPO004.resx">
       <DependentUpon>PDEPO004.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PDEPO003.resx">
+    <EmbeddedResource Include="Administracion\PDEPO003.resx">
       <DependentUpon>PDEPO003.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PDEPO003BIS.resx">
+    <EmbeddedResource Include="Administracion\PDEPO003BIS.resx">
       <DependentUpon>PDEPO003BIS.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PINFO008.resx">
+    <EmbeddedResource Include="Informes\PINFO008.resx">
       <DependentUpon>PINFO008.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PINFO008BIS.resx">
+    <EmbeddedResource Include="Informes\PINFO008BIS.resx">
       <DependentUpon>PINFO008BIS.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PINFO009.resx">
+    <EmbeddedResource Include="Informes\PINFO009.resx">
       <DependentUpon>PINFO009.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PMAIL001.resx">
       <DependentUpon>PMAIL001.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA013BIS.resx">
+    <EmbeddedResource Include="Tranferencias_Almacenes\PALMA013BIS.resx">
       <DependentUpon>PALMA013BIS.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA014BIS.resx">
+    <EmbeddedResource Include="Tranferencias_Almacenes\PALMA014BIS.resx">
       <DependentUpon>PALMA014BIS.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PALMA031.resx">
@@ -1138,67 +1225,67 @@
     <EmbeddedResource Include="PALER001.resx">
       <DependentUpon>PALER001.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA005.resx">
+    <EmbeddedResource Include="Entrega_Materiales\PALMA005.resx">
       <DependentUpon>PALMA005.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA002.resx">
+    <EmbeddedResource Include="Entrega_Materiales\PALMA002.resx">
       <DependentUpon>PALMA002.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA003.resx">
+    <EmbeddedResource Include="Entrega_Materiales\PALMA003.resx">
       <DependentUpon>PALMA003.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA004.resx">
+    <EmbeddedResource Include="Entrega_Materiales\PALMA004.resx">
       <DependentUpon>PALMA004.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA004BIS.resx">
+    <EmbeddedResource Include="Entrega_Materiales\PALMA004BIS.resx">
       <DependentUpon>PALMA004BIS.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA006.resx">
+    <EmbeddedResource Include="Entrega_Ropa\PALMA006.resx">
       <DependentUpon>PALMA006.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA007.resx">
+    <EmbeddedResource Include="Entrega_Ropa\PALMA007.resx">
       <DependentUpon>PALMA007.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA008.resx">
+    <EmbeddedResource Include="Entrega_Herramienta\PALMA008.resx">
       <DependentUpon>PALMA008.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA009.resx">
+    <EmbeddedResource Include="Entrega_Herramienta\PALMA009.resx">
       <DependentUpon>PALMA009.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA010.resx">
+    <EmbeddedResource Include="Entrega_Maquinas\PALMA010.resx">
       <DependentUpon>PALMA010.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA012.resx">
+    <EmbeddedResource Include="Entrega_Maquinas\PALMA012.resx">
       <DependentUpon>PALMA012.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA013.resx">
+    <EmbeddedResource Include="Tranferencias_Almacenes\PALMA013.resx">
       <DependentUpon>PALMA013.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA014.resx">
+    <EmbeddedResource Include="Tranferencias_Almacenes\PALMA014.resx">
       <DependentUpon>PALMA014.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PALMA015.resx">
       <DependentUpon>PALMA015.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA017.resx">
+    <EmbeddedResource Include="Medidores_Nuevos\PALMA017.resx">
       <DependentUpon>PALMA017.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA018.resx">
+    <EmbeddedResource Include="Medidores_Nuevos\PALMA018.resx">
       <DependentUpon>PALMA018.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA019.resx">
+    <EmbeddedResource Include="Medidores_Nuevos\PALMA019.resx">
       <DependentUpon>PALMA019.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA020.resx">
+    <EmbeddedResource Include="Medidores_Nuevos\PALMA020.resx">
       <DependentUpon>PALMA020.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA025.resx">
+    <EmbeddedResource Include="Entrega_Maquinas\PALMA025.resx">
       <DependentUpon>PALMA025.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA026.resx">
+    <EmbeddedResource Include="Entrega_Materiales\PALMA026.resx">
       <DependentUpon>PALMA026.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA027.resx">
+    <EmbeddedResource Include="Tratamiento_medidores\PALMA027.resx">
       <DependentUpon>PALMA027.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PALMA028.resx">
@@ -1210,61 +1297,61 @@
     <EmbeddedResource Include="PALMA030.resx">
       <DependentUpon>PALMA030.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PALMA100.resx">
+    <EmbeddedResource Include="Administracion\PALMA100.resx">
       <DependentUpon>PALMA100.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PCARG001.resx">
+    <EmbeddedResource Include="Medidores_Nuevos\PCARG001.resx">
       <DependentUpon>PCARG001.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PCIUD001.resx">
+    <EmbeddedResource Include="Administracion\PCIUD001.resx">
       <DependentUpon>PCIUD001.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PCIUD002.resx">
+    <EmbeddedResource Include="Administracion\PCIUD002.resx">
       <DependentUpon>PCIUD002.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PCOMP001.resx">
+    <EmbeddedResource Include="Ordenes de Compra\PCOMP001.resx">
       <DependentUpon>PCOMP001.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PCOMP002.resx">
+    <EmbeddedResource Include="Ordenes de Compra\PCOMP002.resx">
       <DependentUpon>PCOMP002.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PCOMP003.resx">
+    <EmbeddedResource Include="Ordenes de Compra\PCOMP003.resx">
       <DependentUpon>PCOMP003.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PCOMP004.resx">
+    <EmbeddedResource Include="Ordenes de Compra\PCOMP004.resx">
       <DependentUpon>PCOMP004.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PCONF001.resx">
+    <EmbeddedResource Include="Ordenes de Compra\PCONF001.resx">
       <DependentUpon>PCONF001.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PCONF002.resx">
+    <EmbeddedResource Include="Peticiones\PCONF002.resx">
       <DependentUpon>PCONF002.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PCONT001.resx">
+    <EmbeddedResource Include="Administracion\PCONT001.resx">
       <DependentUpon>PCONT001.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PDEPO001.resx">
+    <EmbeddedResource Include="Administracion\PDEPO001.resx">
       <DependentUpon>PDEPO001.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PINFO001.resx">
+    <EmbeddedResource Include="Informes\PINFO001.resx">
       <DependentUpon>PINFO001.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PINFO002.resx">
+    <EmbeddedResource Include="Informes\PINFO002.resx">
       <DependentUpon>PINFO002.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PINFO003.resx">
+    <EmbeddedResource Include="Informes\PINFO003.resx">
       <DependentUpon>PINFO003.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PINFO004.resx">
+    <EmbeddedResource Include="Informes\PINFO004.resx">
       <DependentUpon>PINFO004.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PINFO005.resx">
+    <EmbeddedResource Include="Informes\PINFO005.resx">
       <DependentUpon>PINFO005.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PINFO006.resx">
+    <EmbeddedResource Include="Informes\PINFO006.resx">
       <DependentUpon>PINFO006.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PINFO007.resx">
+    <EmbeddedResource Include="Informes\PINFO007.resx">
       <DependentUpon>PINFO007.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PLOGI001.resx">
@@ -1279,81 +1366,103 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="PMATE001.resx">
+    <EmbeddedResource Include="Administracion\PMATE001.resx">
       <DependentUpon>PMATE001.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PMATE002.resx">
+    <EmbeddedResource Include="Administracion\PMATE002.resx">
       <DependentUpon>PMATE002.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="POPER001.resx">
+    <EmbeddedResource Include="Administracion\POPER001.resx">
       <DependentUpon>POPER001.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="POPER002.resx">
+    <EmbeddedResource Include="Administracion\POPER002.resx">
       <DependentUpon>POPER002.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PPASS001.resx">
+    <EmbeddedResource Include="Administracion\PPASS001.resx">
       <DependentUpon>PPASS001.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PPERF001.resx">
+    <EmbeddedResource Include="Administracion\PPERF001.resx">
       <DependentUpon>PPERF001.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PPERF002.resx">
+    <EmbeddedResource Include="Administracion\PPERF002.resx">
       <DependentUpon>PPERF002.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PPERF003.resx">
+    <EmbeddedResource Include="Administracion\PPERF003.resx">
       <DependentUpon>PPERF003.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PPETI001.resx">
+    <EmbeddedResource Include="Peticiones\PPETI001.resx">
       <DependentUpon>PPETI001.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PPETI002.resx">
+    <EmbeddedResource Include="Peticiones\PPETI002.resx">
       <DependentUpon>PPETI002.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PPETI002BIS.resx">
+    <EmbeddedResource Include="Peticiones\PPETI002BIS.resx">
       <DependentUpon>PPETI002BIS.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PPETI002BIS_2.resx">
+    <EmbeddedResource Include="Peticiones\PPETI002BIS_2.resx">
       <DependentUpon>PPETI002BIS_2.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PPETI003.resx">
+    <EmbeddedResource Include="Peticiones\PPETI003.resx">
       <DependentUpon>PPETI003.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PPETI004.resx">
+    <EmbeddedResource Include="Peticiones\PPETI004.resx">
       <DependentUpon>PPETI004.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PPROV001.resx">
+    <EmbeddedResource Include="Administracion\PPROV001.resx">
       <DependentUpon>PPROV001.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PPROV003.resx">
+    <EmbeddedResource Include="Administracion\PPROV003.resx">
       <DependentUpon>PPROV003.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PUSER001.resx">
+    <EmbeddedResource Include="Administracion\PUSER001.resx">
       <DependentUpon>PUSER001.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PUSER002.resx">
+    <EmbeddedResource Include="Administracion\PUSER002.resx">
       <DependentUpon>PUSER002.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RemitoMedsDevueltos.rpt">
+    <EmbeddedResource Include="Reportes\RemitoMedsDevueltos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RemitoMedsDevueltos.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Transpaso.rdlc" />
-    <EmbeddedResource Include="ValeCombustible.rpt">
+    <EmbeddedResource Include="Reportes\Transpaso.rdlc" />
+    <EmbeddedResource Include="Reportes\ValeCombustible.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ValeCombustible.vb</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="INSTRUMENTO.xsc">
+    <None Include="DataSet\DSListado.xsc">
+      <DependentUpon>DSListado.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DSListado.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSListado.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\DSListado.xss">
+      <DependentUpon>DSListado.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DS_OC.xsc">
+      <DependentUpon>DS_OC.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DS_OC.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_OC.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\DS_OC.xss">
+      <DependentUpon>DS_OC.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\INSTRUMENTO.xsc">
       <DependentUpon>INSTRUMENTO.xsd</DependentUpon>
     </None>
-    <None Include="INSTRUMENTO.xsd">
+    <None Include="DataSet\INSTRUMENTO.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>INSTRUMENTO.Designer.vb</LastGenOutput>
     </None>
-    <None Include="INSTRUMENTO.xss">
+    <None Include="DataSet\INSTRUMENTO.xss">
       <DependentUpon>INSTRUMENTO.xsd</DependentUpon>
     </None>
     <None Include="My Project\Application.myapp">
@@ -1585,6 +1694,7 @@
       <FileType>Assembly</FileType>
     </PublishFile>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

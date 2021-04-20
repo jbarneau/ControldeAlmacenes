@@ -10,6 +10,11 @@ Public Class PMAIN001
     Private Sub PMAIN001_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Label3.Text = "USUARIO: " & _usr.Obt_Nombre_y_Apellido
         Label5.Text = "Fecha: " & DateTime.Now().ToShortDateString
+        'grabar imagen de oc
+        'MAIN.InsertarFotoEnBDD(1, "C:\Users\JuanJoseBarneau\Desktop\oc.jpg")
+        'grabar imacgen oc
+        'MAIN.InsertarFotoEnBDD(2, "C:\Users\JuanJoseBarneau\Desktop\remito.jpg")
+
         llenar_pc()
         imagenes()
         activar()
@@ -18,6 +23,7 @@ Public Class PMAIN001
         Else
             lblver.Text = "v" + Application.ProductVersion
         End If
+
     End Sub
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
         DestroyHandle()
@@ -218,6 +224,24 @@ Public Class PMAIN001
         con1.Close()
         TextBox8.Text = contador
     End Sub
+
+    Private Sub llenar_meds_pend_tratar_bolsas()
+        Dim contador As Integer = 0
+        Dim con1 As SqlConnection = New SqlConnection(conexion)
+        'abro la cadena
+        con1.Open()
+        'creo el comando para pasarle los parametros
+        Dim comando1 As New SqlClient.SqlCommand("SELECT SUM(CANT_TRAJO_123) AS SUMATOT FROM dbo.T_REG_INGRESO_123", con1)
+        'creo un lector
+        comando1.ExecuteNonQuery()
+        Dim lector1 As SqlDataReader = comando1.ExecuteReader
+        If lector1.Read Then
+            contador = CInt(lector1.GetValue(0))
+        End If
+        con1.Close()
+        TextBox14.Text = contador
+    End Sub
+
     Public Sub llenar_pc()
         Cant_Peticiones_Sin_aprobar()
         Cant_OC_Sin_aprobar()
@@ -231,6 +255,7 @@ Public Class PMAIN001
         Cant_Peticiones_Sin_nfng()
         Cant_medidores()
         llenar_stock_critico()
+        llenar_meds_pend_tratar_bolsas()
     End Sub
 
     Private Sub llenar_stock_critico()
@@ -1335,6 +1360,15 @@ Public Class PMAIN001
     Private Sub REMITODEVOLUCIONToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles REMITODEVOLUCIONToolStripMenuItem.Click
         Timer1.Stop()
         Dim PANT As New PALMA049
+        Me.Hide()
+        PANT.ShowDialog()
+        Me.Show()
+        Timer1.Start()
+    End Sub
+
+    Private Sub MEDSENCUSTODIAVENCIDOSToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MEDSENCUSTODIAVENCIDOSToolStripMenuItem.Click
+        Timer1.Stop()
+        Dim PANT As New PALMA038
         Me.Hide()
         PANT.ShowDialog()
         Me.Show()

@@ -19,7 +19,7 @@ Public Class PALMA030
     Private Metodos As New Clas_Almacen
     Private Medidor As New Clas_Medidor
     Private _CantItem As Integer = 0
-
+    Private med_rettirar As New Clase_med_retirar
 
     Private Sub PALMA030_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
@@ -368,19 +368,18 @@ Public Class PALMA030
                             _CANT = Me.DataGridView1.Item(2, i).Value
                             Metodos.Descontar_Stock_Material(_MATERIAL, _DEPOSITO, _CANT, _ESTADO)
                             Metodos.Grabar_Trans(_nremito, _fecha, _MATERIAL, _DEPOSITO, _DEPOSITO, 7, _fecha, 0, TextBox3.Text, 0, _CANT, 0, _usr.Obt_Usr, _CONTRATO, "")
+                            Metodos.Descontar_Stock_Contrato(_MATERIAL, _CONTRATO, _CANT)
                             'si es serializado se agraga un material serializado sin asignar numero
                             If Medidor.Es_Serializado(_MATERIAL) = True Then
                                 For G = 0 To MAIN.serie.Count - 1
                                     If MAIN.material.Item(G) = _MATERIAL Then
-                                        Medidor.MODIFICAR_MEDIDOR_ESTADO_4(MAIN.serie.Item(G), _MATERIAL, _fecha, _usr.Obt_Usr, _nremito)
+                                        Medidor.MODIFICAR_MEDIDOR_ESTADO_4(MAIN.serie.Item(G).ToString, _MATERIAL, _fecha, _usr.Obt_Usr, _nremito)
+                                        med_rettirar.GRABAR_MEDIDOR2(MAIN.serie.Item(G).ToString, Date.Today, _usr.Obt_Usr, _DEPOSITO, _MATERIAL, "SP", "01", Date.Today, 0, 0, "SO", "NF")
                                     End If
                                 Next
-                            Else
-                                Metodos.Descontar_Stock_Contrato(_MATERIAL, _CONTRATO, _CANT)
                             End If
                         Next
                         PrintDocument1.Print()
-
                         borrar()
                         MENSAJE.MADVE004(_nremito) ''mensaje de confirmacion
                     Catch ex As Exception
@@ -437,6 +436,9 @@ Public Class PALMA030
 
     Private Sub TextBox3_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox3.TextChanged
         TextBox3.Text = mayusculas(TextBox3.Text, TextBox3)
+        If TextBox3.TextLength > 30 Then
+            TextBox3.Text = TextBox3.Text.ToString.Remove(30)
+        End If
     End Sub
 
     Private Sub PrintDocument1_PrintPage(ByVal sender As System.Object, ByVal e As System.Drawing.Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
