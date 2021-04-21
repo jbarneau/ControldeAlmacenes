@@ -490,8 +490,8 @@ Public Class PALMA002
 
                         End If
                     Next
-                    ' PrintDocument1.Print()
-                    ' PrintDocument1.Print()
+                    PrintDocument1.Print()
+                    PrintDocument1.Print()
                     'equipo
                     borrar()
                     MENSAJE.MADVE004(_NREMITO) ''mensaje de confirmacion

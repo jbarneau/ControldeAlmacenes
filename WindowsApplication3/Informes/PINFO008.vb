@@ -21,24 +21,23 @@ Public Class PINFO008
     Private Sub DataGridView1_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles DataGridView1.DoubleClick
         If DataGridView1.RowCount <> 0 Then
             NOC = CDec(Me.DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value)
-            llenarDW2_estado2y3(NOC)
+            Dim P As New PCONS008BIS2
+            If cbMaterial.Text <> Nothing Then
+                P.tomar(NOC, cbMaterial.SelectedValue)
+            Else
+                P.tomar(NOC, "NO")
+            End If
+
+            P.ShowDialog()
         End If
     End Sub
-    Private Sub DataGridView2_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles DataGridView2.DoubleClick
-        If Me.DataGridView2.Item(4, Me.DataGridView2.CurrentRow.Index).Value <> 0 Then
-            Dim PANTALLA As New PINFO008BIS
-            PANTALLA.GRABAR(NOC, Me.DataGridView2.Item(0, DataGridView2.CurrentRow.Index).Value)
-            PANTALLA.ShowDialog()
-        Else
-            MENSAJE.MERRO029()
-        End If
-    End Sub
+
 #Region "FUNCIONES"
     ' PRINT DOCUMENT
 
     'LLENAR DATASVIEW
-    Private Sub llenarDW1(ByVal desde As Date, ByVal hasta As Date, ByVal pro As String, ByVal codmat As String)
-        DataGridView2.Rows.Clear()
+    Private Sub llenarDW12(ByVal desde As Date, ByVal hasta As Date, ByVal pro As String, ByVal codmat As String)
+
         Dim d1 As String = ""
         Dim d2 As String = ""
         Dim d3 As String = ""
@@ -157,41 +156,7 @@ Public Class PINFO008
         End If
 
     End Sub
-    Private Sub llenarDW2_estado2y3(ByVal nremi As Decimal)
-        Dim mate As String = ""
-        Dim desc As String = ""
-        Dim soli As Decimal = 0
-        Dim ent As Decimal = 0
-        Dim unid As String = ""
-        DataGridView2.Rows.Clear()
-        'creo la cadena de conexion
-        Dim con1 As SqlConnection = New SqlConnection(conexion)
-        'abro la cadena
-        con1.Open()
-        'creo el comando para pasarle los parametros
-        Dim comando1 As New SqlClient.SqlCommand("SELECT dbo.T_D_OC_106.C_MATE_106, dbo.M_MATE_002.DESC_002, dbo.T_D_OC_106.CANT_106, dbo.T_D_OC_106.CANTE_106, dbo.M_MATE_002.UNID_002 FROM dbo.T_D_OC_106 INNER JOIN dbo.M_MATE_002 ON dbo.T_D_OC_106.C_MATE_106 = dbo.M_MATE_002.CMATE_002 WHERE (dbo.T_D_OC_106.N_OC_106 = @D1) and (dbo.T_D_OC_106.CONF_106 = 1) ", con1)
-        'creo el lector de parametros
-        comando1.Parameters.Add(New SqlParameter("D1", nremi))
-        comando1.ExecuteNonQuery()
-        'genero un lector
-        Dim lector1 As SqlDataReader = comando1.ExecuteReader
-        'pregunto si encontro
-        While lector1.Read
-            mate = lector1.GetValue(0)
-            desc = lector1.GetValue(1)
-            soli = lector1.GetValue(2)
-            ent = lector1.GetValue(3)
-            unid = lector1.GetValue(4)
-            Me.DataGridView2.Rows.Add(mate, desc, unid, soli, ent, soli - ent)
-        End While
-        'ciero la conexion
-        con1.Close()
-        If DataGridView2.Rows.Count <> 0 Then
-            Button3.Enabled = True
-        Else
-            Button3.Enabled = False
-        End If
-    End Sub
+
     Private Sub llenar_CB_proveedor()
         Dim DS_contrato As New DataSet
         'CONECTO LA BASE
@@ -224,68 +189,78 @@ Public Class PINFO008
 
 #End Region
 #Region "BOTONES"
-    'boton imprimir
-    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
-        If DataGridView2.Rows.Count <> 0 Then
-            PrintDocument1.Print()
-        End If
-    End Sub
-    'boton salir
+
 
     'BOTON DE FILTRAR POR FECHA Y PROVEEDRO
 
     'boton del excle
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        Dim desde As String = dtpDesde.Value.Day & dtpDesde.Value.Month & dtpDesde.Value.Year
-        Dim hasta As String = dtpHasta.Value.Day & dtpHasta.Value.Month & dtpHasta.Value.Year
-        Dim desdelargo As String = dtpDesde.Value.Day & "/" & dtpDesde.Value.Month & "/" & dtpDesde.Value.Year
-        Dim hastalargo As String = dtpHasta.Value.Day & "/" & dtpHasta.Value.Month & "/" & dtpHasta.Value.Year
-        Dim mate As String = ""
-        Dim desc As String = ""
-        Dim soli As Decimal = 0
-        Dim ent As Decimal = 0
-        Dim unid As String = ""
-        If My.Computer.FileSystem.DirectoryExists("C:\ARCHIVO") = False Then
-            My.Computer.FileSystem.CreateDirectory("C:\ARCHIVO")
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btEcxel.Click
+        Me.Cursor = Cursors.WaitCursor
+        DataGridView1.Rows.Clear()
+        'primero tengo que asignar fechas
+        Dim fdesde As Date = dtpDesde.Value.ToShortDateString + " 00:00"
+        Dim fhasta As Date = dtpHasta.Value.ToShortDateString + " 23:50"
+        Dim whereProveedor As String = ""
+        Dim whereMaterial As String = ""
+        Dim tabla As New DataTable
+        If cbMaterial.Text <> Nothing Then
+            whereMaterial = " AND (T_D_OC_106.C_MATE_106 = '" + cbMaterial.SelectedValue + "')"
         End If
-        Dim fichero As String = "C:\Archivo\Informe_OC_" + cbProveedor.Text + "_" + desde.ToString + "_" + hasta.ToString + ".csv"
-        Dim a As New System.IO.StreamWriter(fichero)
-        a.WriteLine("PROVEEDOR:;" + cbProveedor.SelectedValue + "-" + cbProveedor.Text)
-        a.WriteLine("Desde:;" + desdelargo.ToString + "; hasta:;" + hastalargo.ToString)
-        a.WriteLine()
-        a.WriteLine("NOC;FGENERADO; GENERO;FAPROBADO; APROBO;CONTRATO;CODMATERIAL;DETALLE;UNIDAD;SOLICITADO;ENTREGADO;SALDO")
-        For I = 0 To Me.DataGridView1.RowCount - 1
-            ' a.WriteLine(Me.DataGridView1.Item(0, I).Value.ToString + ";" + Me.DataGridView1.Item(1, I).Value.ToString + ";" + Me.DataGridView1.Item(2, I).Value.ToString + ";" + Me.DataGridView1.Item(3, I).Value.ToString + ";" + Me.DataGridView1.Item(4, I).Value.ToString + ";" + Me.DataGridView1.Item(6, I).Value.ToString)
-            ' a.WriteLine(";;CODMATERIAL;DETALLE;UNIDAD;SOLICITADO;ENTREGADO;SALDO")
-            Dim con1 As SqlConnection = New SqlConnection(conexion)
-            Try
-                con1.Open()
-                Dim comando1 As New SqlClient.SqlCommand("SELECT dbo.T_D_OC_106.C_MATE_106, dbo.M_MATE_002.DESC_002, dbo.T_D_OC_106.CANT_106, dbo.T_D_OC_106.CANTE_106, dbo.M_MATE_002.UNID_002 FROM dbo.T_D_OC_106 INNER JOIN dbo.M_MATE_002 ON dbo.T_D_OC_106.C_MATE_106 = dbo.M_MATE_002.CMATE_002 WHERE (dbo.T_D_OC_106.N_OC_106 = @D1) and (dbo.T_D_OC_106.CONF_106 = 1) ", con1)
-                comando1.Parameters.Add(New SqlParameter("D1", CDec(Me.DataGridView1.Item(0, I).Value)))
-                Dim lector1 As SqlDataReader = comando1.ExecuteReader
-                While lector1.Read
-                    mate = lector1.GetValue(0)
-                    desc = lector1.GetValue(1)
-                    soli = lector1.GetValue(2)
-                    ent = lector1.GetValue(3)
-                    unid = lector1.GetValue(4)
-                    a.WriteLine(Me.DataGridView1.Item(0, I).Value.ToString + ";" + Me.DataGridView1.Item(1, I).Value.ToString + ";" + Me.DataGridView1.Item(2, I).Value.ToString + ";" + Me.DataGridView1.Item(3, I).Value.ToString + ";" + Me.DataGridView1.Item(4, I).Value.ToString + ";" + Me.DataGridView1.Item(6, I).Value.ToString + ";" + mate.ToString + ";" + desc.ToString + ";" + unid.ToString + ";" + soli.ToString + ";" + ent.ToString + ";" + (soli - ent).ToString)
-                End While
+        If cbProveedor.Text <> Nothing Then
+            whereProveedor = " AND (T_C_OC_105.C_PROV_105 = '" + cbProveedor.SelectedValue + "')"
+        End If
+        Dim consulta As String = “SELECT T_C_OC_105.N_OC_105 AS NOC, T_C_OC_105.F_ALTA_105 AS FALTA, UsrG.APELL_001 + ' ' + UsrG.NOMB_001 AS GENERO, DET_PARAMETRO_802.DESC_802 AS ESTADO, T_C_OC_105.FAPRO_105 AS FAPROBO, UsrA.APELL_001 + ' ' + UsrA.NOMB_001 AS APROBO, M_PROV_005.RAZO_005 AS PROVEEDOR,IIF(T_C_OC_105.CONPRECIO_105=1,'CON PRECIO','SIN PRECIO') AS VALORIZADA, T_C_OC_105.MONTO_105, T_D_OC_106.C_MATE_106 AS CODMATERIAL, M_MATE_002.DESC_002 AS DESC_MAERIAL, M_MATE_002.UNID_002 AS UNIDAD, T_D_OC_106.CANT_106 AS CANT_SOLICITADA, T_D_OC_106.CANTE_106 AS CANT_ENTREGADA, T_D_OC_106.CANT_106 - T_D_OC_106.CANTE_106 AS SALDO, T_D_OC_106.PRECIO_C_106 AS PRECIO_U, T_D_OC_106.PRECIO_C_106 * T_D_OC_106.CANT_106 AS SUBTOTAL FROM T_C_OC_105 INNER JOIN M_USRS_001 AS UsrG ON T_C_OC_105.USERG_105 = UsrG.NDOC_001 INNER JOIN M_USRS_001 AS UsrA ON T_C_OC_105.USERR_105 = UsrA.NDOC_001 INNER JOIN DET_PARAMETRO_802 ON T_C_OC_105.ESTA_105 = DET_PARAMETRO_802.C_PARA_802 INNER JOIN M_PROV_005 ON T_C_OC_105.C_PROV_105 = M_PROV_005.CUIT_005 INNER JOIN T_D_OC_106 ON T_C_OC_105.N_OC_105 = T_D_OC_106.N_OC_106 INNER JOIN M_MATE_002 ON T_D_OC_106.C_MATE_106 = M_MATE_002.CMATE_002 WHERE (DET_PARAMETRO_802.C_TABLA_802 = 9) AND (T_C_OC_105.TIPO_OC_105 = 1) AND (T_C_OC_105.F_ALTA_105 BETWEEN @D1 AND @D2)” + whereMaterial + whereProveedor + “ ORDER BY NOC DESC”
 
-            Catch ex As Exception
-                MessageBox.Show(ex.Message)
-            Finally
-                con1.Close()
-            End Try
-        Next
-        a.Close()
-        MENSAJE.MADVE002(fichero)
+        Dim CNN As New SqlConnection(conexion)
+        Try
+            CNN.Open()
+            Dim ADAPTADOR As New SqlDataAdapter(consulta, CNN)
+            ADAPTADOR.SelectCommand.Parameters.Add(New SqlParameter("D1", fdesde))
+            ADAPTADOR.SelectCommand.Parameters.Add(New SqlParameter("D2", fhasta))
+            ADAPTADOR.Fill(tabla)
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        Finally
+            CNN.Close()
+        End Try
+        If tabla.Rows.Count <> 0 Then
+            If My.Computer.FileSystem.DirectoryExists("C:\ARCHIVO") = False Then
+                My.Computer.FileSystem.CreateDirectory("C:\ARCHIVO")
+            End If
+            Dim fichero As String = "C:\Archivo\Informe_OC_" + cbProveedor.Text + "_" + fdesde.ToString("dd-MM-yyyy") + "_" + fhasta.ToString("dd-MM-yyyy") + "_" + Date.Now.ToString("ddMMyyyyHHmmss") + ".csv"
+            Dim a As New System.IO.StreamWriter(fichero)
+            a.WriteLine("Desde:;" + fdesde.ToShortDateString + "; hasta:;" + fhasta.ToShortDateString)
+            Dim linea As String = ""
+            For I = 0 To tabla.Columns.Count - 1
+                If I = 0 Then
+                    linea = tabla.Columns(I).ColumnName.ToString
+                Else
+                    linea = linea + ";" + tabla.Columns(I).ColumnName.ToString
+                End If
+            Next
+            a.WriteLine(linea)
+            For I = 0 To tabla.Rows.Count - 1
+                For j = 0 To tabla.Columns.Count - 1
+                    If j = 0 Then
+                        linea = tabla.Rows(I).Item(j).ToString
+                    Else
+                        linea = linea + ";" + tabla.Rows(I).Item(j).ToString
+                    End If
+                Next
+                a.WriteLine(linea)
+            Next
+            a.Close()
+            MENSAJE.MADVE002(fichero)
+
+        End If
+        Me.Cursor = Cursors.Arrow
+
+
     End Sub
     'BOTON DE FILTRAR POR NUMERO DE REMITO
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         DataGridView1.Rows.Clear()
-        DataGridView2.Rows.Clear()
 
         Dim FGENERADO As Date
         Dim USERG As String
@@ -313,7 +288,7 @@ Public Class PINFO008
                         FAPRO = LECTOR.GetDateTime(5)
                         CONTRATO2 = LECTOR.GetValue(6)
                         Me.DataGridView1.Rows.Add(NOC.ToString, FGENERADO.ToShortDateString, OBT_NOM_USER(USERG), FAPRO.ToShortDateString, OBT_NOM_USER(USERA), cbProveedor.Text, oc.que_contrato(CONTRATO2))
-                        llenarDW2_estado2y3(CDec(NOC))
+
                         band = True
                     End If
                 Loop
@@ -334,14 +309,52 @@ Public Class PINFO008
 
     Private Sub llenar_dgv1()
         Me.Cursor = Cursors.WaitCursor
+        DataGridView1.Rows.Clear()
         'primero tengo que asignar fechas
-        'Dim fdesde ad Date = 
+        Dim fdesde As Date = dtpDesde.Value.ToShortDateString + " 00:00"
+        Dim fhasta As Date = dtpHasta.Value.ToShortDateString + " 23:50"
+        Dim whereProveedor As String = ""
+        Dim whereMaterial As String = ""
+        If cbMaterial.Text <> Nothing Then
+            whereMaterial = "AND (T_D_OC_106.C_MATE_106 = '" + cbMaterial.SelectedValue + "')"
+        End If
+        If cbProveedor.Text <> Nothing Then
+            whereProveedor = "AND (T_C_OC_105.C_PROV_105 = '" + cbProveedor.SelectedValue + "')"
+        End If
+        Dim consulta As String = “SELECT T_C_OC_105.N_OC_105 AS NOC, T_C_OC_105.F_ALTA_105 AS FALTA, UsrG.APELL_001 + ' ' + UsrG.NOMB_001 AS GENERO, DET_PARAMETRO_802.DESC_802 AS ESTADO, T_C_OC_105.FAPRO_105 AS FAPROBO, UsrA.APELL_001 + ' ' + UsrA.NOMB_001 AS APROBO, M_PROV_005.RAZO_005 AS PROVEEDOR, IIF(T_C_OC_105.CONPRECIO_105=1,'CON PRECIO','SIN PRECIO') AS VALORIZADA, T_C_OC_105.MONTO_105, SUM(T_D_OC_106.CANT_106) AS CANTIDAD FROM T_C_OC_105 INNER JOIN M_USRS_001 AS UsrG ON T_C_OC_105.USERG_105 = UsrG.NDOC_001 INNER JOIN M_USRS_001 AS UsrA ON T_C_OC_105.USERR_105 = UsrA.NDOC_001 INNER JOIN DET_PARAMETRO_802 ON T_C_OC_105.ESTA_105 = DET_PARAMETRO_802.C_PARA_802 INNER JOIN M_PROV_005 ON T_C_OC_105.C_PROV_105 = M_PROV_005.CUIT_005 INNER JOIN T_D_OC_106 ON T_C_OC_105.N_OC_105 = T_D_OC_106.N_OC_106 WHERE (DET_PARAMETRO_802.C_TABLA_802 = 9) AND (T_C_OC_105.TIPO_OC_105 = 1)” + whereMaterial + whereProveedor + ” GROUP BY T_C_OC_105.N_OC_105, T_C_OC_105.F_ALTA_105, UsrG.APELL_001 + ' ' + UsrG.NOMB_001, DET_PARAMETRO_802.DESC_802, T_C_OC_105.FAPRO_105, UsrA.APELL_001 + ' ' + UsrA.NOMB_001, M_PROV_005.RAZO_005, T_C_OC_105.CONPRECIO_105, T_C_OC_105.MONTO_105 HAVING (T_C_OC_105.F_ALTA_105 BETWEEN @D1 AND @D2) ORDER BY NOC”
 
+        Dim CNN As New SqlConnection(conexion)
 
-
-
+        Try
+            CNN.Open()
+            Dim ADAPTADOR As New SqlCommand(consulta, CNN)
+            ADAPTADOR.Parameters.Add(New SqlParameter("D1", fdesde))
+            ADAPTADOR.Parameters.Add(New SqlParameter("D2", fhasta))
+            Dim LECTOR As SqlDataReader = ADAPTADOR.ExecuteReader
+            Do While LECTOR.Read
+                Me.DataGridView1.Rows.Add(LECTOR.GetValue(0).ToString, LECTOR.GetValue(1).ToString, LECTOR.GetValue(2), LECTOR.GetValue(3), LECTOR.GetValue(4), LECTOR.GetValue(5), LECTOR.GetValue(6), LECTOR.GetValue(7), LECTOR.GetValue(8))
+            Loop
+            If DataGridView1.RowCount = 0 Then
+                MENSAJE.MERRO011()
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        Finally
+            CNN.Close()
+        End Try
+        If DataGridView1.RowCount <> 0 Then
+            btEcxel.Enabled = True
+        Else
+            btEcxel.Enabled = False
+        End If
 
         Me.Cursor = Cursors.Arrow
     End Sub
 
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        llenar_dgv1()
+
+
+
+    End Sub
 End Class

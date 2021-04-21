@@ -157,6 +157,8 @@ Public Class PCOMP002
     Private Sub DataGridView1_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles dgv1.DoubleClick
         If dgv1.RowCount <> 0 Then
             noc = CDec(Me.dgv1.Item(0, dgv1.CurrentRow.Index).Value)
+
+
             llenarDW2(noc)
 
             If dgv1.RowCount <> 0 And dgv2.RowCount <> 0 Then
