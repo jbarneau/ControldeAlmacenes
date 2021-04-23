@@ -55,6 +55,7 @@ Partial Class PALMA002
         Me.Label11 = New System.Windows.Forms.Label()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
+        Me.txtdispoTexto = New System.Windows.Forms.TextBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -195,12 +196,13 @@ Partial Class PALMA002
         '
         Me.txtDisponible.Enabled = False
         Me.txtDisponible.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDisponible.Location = New System.Drawing.Point(531, 229)
+        Me.txtDisponible.Location = New System.Drawing.Point(354, 270)
         Me.txtDisponible.Name = "txtDisponible"
         Me.txtDisponible.ReadOnly = True
         Me.txtDisponible.Size = New System.Drawing.Size(123, 26)
         Me.txtDisponible.TabIndex = 137
         Me.txtDisponible.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtDisponible.Visible = False
         '
         'Label7
         '
@@ -208,9 +210,9 @@ Partial Class PALMA002
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.Location = New System.Drawing.Point(350, 232)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(151, 20)
+        Me.Label7.Size = New System.Drawing.Size(60, 20)
         Me.Label7.TabIndex = 136
-        Me.Label7.Text = "Disponible Deposito"
+        Me.Label7.Text = "Estado"
         '
         'Label2
         '
@@ -382,11 +384,23 @@ Partial Class PALMA002
         Me.Label12.TabIndex = 206
         Me.Label12.Text = "CodBarras"
         '
+        'txtdispoTexto
+        '
+        Me.txtdispoTexto.Enabled = False
+        Me.txtdispoTexto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtdispoTexto.Location = New System.Drawing.Point(417, 229)
+        Me.txtdispoTexto.Name = "txtdispoTexto"
+        Me.txtdispoTexto.ReadOnly = True
+        Me.txtdispoTexto.Size = New System.Drawing.Size(167, 26)
+        Me.txtdispoTexto.TabIndex = 207
+        Me.txtdispoTexto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
         'PALMA002
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(935, 639)
+        Me.Controls.Add(Me.txtdispoTexto)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.Label11)
@@ -457,4 +471,5 @@ Partial Class PALMA002
     Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents Column5 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents txtdispoTexto As TextBox
 End Class

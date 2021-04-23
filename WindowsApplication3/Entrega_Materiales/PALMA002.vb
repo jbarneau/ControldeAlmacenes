@@ -37,6 +37,8 @@ Public Class PALMA002
         LLENAR_CB_MATERIAL()
         TextBox2.Text = Nothing
         txtDisponible.Text = Nothing
+        txtdispoTexto.Text = Nothing
+        txtdispoTexto.ForeColor = Color.Black
         txtStock.Text = Nothing
         'bloqueo el equipo y el deposito
         cbEquipo.Enabled = False
@@ -286,6 +288,13 @@ Public Class PALMA002
             If cbEquipo.Text <> Nothing And cbMaterial.Text <> Nothing Then
                 tbCantidad.Enabled = True
                 txtDisponible.Text = Metodos.Saldo(_MATERIAL, _DEPOSITO, 1)
+                If txtDisponible.Text <> "0" Then
+                    txtdispoTexto.Text = "DISPONIBLE"
+                    txtdispoTexto.ForeColor = Color.Green
+                Else
+                    txtdispoTexto.Text = "SIN STOCK"
+                    txtdispoTexto.ForeColor = Color.Red
+                End If
                 txtStock.Text = Metodos.Saldo(_MATERIAL, _ALMACEN, 1)
                 lbUnidad.Text = Metodos.Unidad(_MATERIAL)
                 tbCantidad.Focus()
@@ -364,6 +373,8 @@ Public Class PALMA002
                                                 TextBox2.Text = Nothing
                                                 cbMaterial.Text = Nothing
                                                 tbCantidad.Text = Nothing
+                                                txtdispoTexto.Text = Nothing
+                                                txtdispoTexto.ForeColor = Color.Black
                                                 tbCantidad.Enabled = False
                                                 txtDisponible.Text = Nothing
                                                 txtStock.Text = Nothing
